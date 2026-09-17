@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Supplier Quote Comparison Tool | ImportMetric</title>
+  <meta name="description" content="Compare supplier quotes by unit price, MOQ, freight, duty and lead time to understand the total import cost before you place an order.">
+  <link rel="canonical" href="https://importmetric.com/supplier-quote-comparison.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://importmetric.com/supplier-quote-comparison.html">
+  <meta property="og:title" content="Supplier Quote Comparison Tool | ImportMetric">
+  <meta property="og:description" content="Compare the full cost of supplier quotes in your browser, from product price and MOQ to freight, duty and lead time.">
+  <meta property="og:site_name" content="ImportMetric">
+  <meta name="theme-color" content="#f5f2eb">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="supplier-quote-comparison.css">
+</head>
+<body class="tool-page">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="ImportMetric home"><span class="brand-mark" aria-hidden="true">IM</span><span class="brand-name">Import<span>Metric</span></span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav"><span class="sr-only">Toggle navigation</span><span></span><span></span></button>
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation"><a href="index.html#tools">Tools</a><a href="index.html#how-it-works">How it works</a><a href="index.html#about">About</a><a class="nav-cta" href="#quote-inputs">Compare quotes <span aria-hidden="true">&#8599;</span></a></nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="tool-hero" aria-labelledby="page-title">
+      <div class="container tool-hero-inner">
+        <div><p class="eyebrow"><span class="eyebrow-dot"></span> Import decision tool 01</p><h1 id="page-title">Supplier Quote<br><em>Comparison</em></h1><p class="tool-subtitle">Compare supplier prices, MOQs, shipping costs and other expenses to see which quote offers the better overall value.</p></div>
+        <div class="hero-aside"><span class="hero-aside-number">01</span><p>Make the full cost visible before you make a purchase decision.</p></div>
+      </div>
+    </section>
+
+    <section class="quote-workspace" id="quote-inputs" aria-labelledby="inputs-title">
+      <div class="container">
+        <div class="workspace-heading"><div><p class="eyebrow">Step 01 / Quote inputs</p><h2 id="inputs-title">Add the numbers<br><em>behind the quote.</em></h2></div><div class="workspace-actions"><button class="button button-secondary" id="load-example" type="button">Load Example</button><button class="button button-quiet" id="reset-quotes" type="button">Reset</button><p class="example-note">Example values are for demonstration only.</p></div></div>
+        <div class="currency-alert" id="currency-alert" role="status" hidden><span aria-hidden="true">!</span><p>Quotes using different currencies cannot be directly compared until they are converted to the same currency.</p></div>
+        <div class="supplier-grid" id="supplier-list"></div>
+        <div class="add-row"><button class="add-supplier" id="add-supplier" type="button"><span aria-hidden="true">+</span> Add Supplier</button><span id="supplier-count">2 suppliers</span></div>
+      </div>
+    </section>
+
+    <section class="results-section" aria-labelledby="results-title">
+      <div class="container">
+        <div class="results-heading"><div><p class="eyebrow">Step 02 / Compare</p><h2 id="results-title">See the <em>real difference.</em></h2></div><button class="button button-primary" id="compare-quotes" type="button">Compare Quotes <span aria-hidden="true">&#8594;</span></button></div>
+        <div class="comparison-notice" id="comparison-notice" role="status">Enter quote details above to compare total cost and effective cost per unit.</div>
+        <div class="table-wrap"><table class="comparison-table"><caption class="sr-only">Supplier quote cost comparison</caption><thead><tr><th scope="col">Supplier</th><th scope="col">Unit Price</th><th scope="col">Product Cost</th><th scope="col">Freight</th><th scope="col">Duty &amp; Tax</th><th scope="col">Other Costs</th><th scope="col">Total Cost</th><th scope="col">Effective Cost / Unit</th><th scope="col">MOQ</th><th scope="col">Lead Time</th><th scope="col">Incoterm</th></tr></thead><tbody id="comparison-body"></tbody></table></div>
+        <p class="table-footnote"><span class="legend-dot legend-low"></span> Lowest comparable cost <span class="legend-dot legend-warning"></span> Quantity below MOQ</p>
+      </div>
+    </section>
+
+    <section class="explain-section" aria-labelledby="explain-title">
+      <div class="container explain-grid"><div><p class="eyebrow">A better quote review</p><h2 id="explain-title">What should you compare<br><em>in a supplier quote?</em></h2></div><div class="explain-copy"><p>Unit Price is only one part of what you will pay. A quote with a lower unit price may carry a higher MOQ, different Incoterm, or more freight and import costs.</p><div class="compare-points"><span><b>MOQ</b><small>Order flexibility</small></span><span><b>Incoterm</b><small>Who pays for what</small></span><span><b>Freight</b><small>Shipping exposure</small></span><span><b>Duty &amp; tax</b><small>Border costs</small></span><span><b>Other costs</b><small>Extra charges</small></span><span><b>Lead time</b><small>Planning certainty</small></span></div></div></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-top"><a class="brand brand-footer" href="index.html"><span class="brand-mark" aria-hidden="true">IM</span><span class="brand-name">Import<span>Metric</span></span></a><p>Clearer numbers for better import decisions.</p><nav aria-label="Footer navigation"><a href="index.html#tools">Tools</a><a href="index.html#how-it-works">How it works</a><a href="index.html#about">About</a></nav></div><div class="container footer-bottom"><span>&copy; 2026 ImportMetric. Free sourcing tools for better decisions.</span><span>Built for importers, wholesalers &amp; e-commerce sellers.</span></div></footer>
+  <script src="script.js"></script>
+  <script src="supplier-quote-comparison.js"></script>
+</body>
+</html>
