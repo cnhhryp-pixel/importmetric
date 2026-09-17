@@ -5,6 +5,8 @@
   var comparisonNotice = document.getElementById('comparison-notice');
   var supplierCount = document.getElementById('supplier-count');
   var supplierNumber = 0;
+  var lastSuppliers = [];
+  var selectedSupplierId = '';
   var exampleData = [
     { name: 'Supplier A', currency: 'USD', unitPrice: 8.4, quantity: 1000, moq: 500, incoterm: 'FOB', freight: 420, duty: 180, other: 65, leadTime: 28 },
     { name: 'Supplier B', currency: 'USD', unitPrice: 7.95, quantity: 1000, moq: 1000, incoterm: 'CIF', freight: 690, duty: 205, other: 40, leadTime: 35 }
@@ -90,6 +92,13 @@
 
   function update() {
     var suppliers = readSuppliers();
+    lastSuppliers = suppliers;
+    var selector = document.getElementById('report-supplier-select');
+    if (selector) {
+      var current = selector.value;
+      selector.innerHTML = '<option value="">Select supplier to report</option>' + suppliers.map(function (item) { return '<option value="' + item.card.dataset.supplierId + '">' + escapeHtml(item.name) + '</option>'; }).join('');
+      selector.value = suppliers.some(function (item) { return item.card.dataset.supplierId === current; }) ? current : '';
+    }
     var validSuppliers = suppliers.filter(function (item) { return item.quantity > 0 && item.unitPrice > 0; });
     var currencies = suppliers.map(function (item) { return item.currency; }).filter(function (value, index, values) { return values.indexOf(value) === index; });
     var currencyMismatch = currencies.length > 1;
@@ -129,5 +138,10 @@
   document.getElementById('reset-quotes').addEventListener('click', reset);
   document.getElementById('load-example').addEventListener('click', loadExample);
   document.getElementById('compare-quotes').addEventListener('click', function () { document.querySelector('.results-section').scrollIntoView({ behavior: 'smooth', block: 'start' }); update(); });
+  var reportControls = document.createElement('div');
+  reportControls.className = 'supplier-report-controls';
+  reportControls.innerHTML = '<label for="report-supplier-select">Report supplier</label><select id="report-supplier-select"><option value="">Select supplier to report</option></select>';
+  document.querySelector('.results-heading').appendChild(reportControls);
+  if (window.ImportMetricDecisionReport) window.ImportMetricDecisionReport.showAction(document.querySelector('.results-heading'), 'supplierQuote', function () { var id = document.getElementById('report-supplier-select').value; var item = lastSuppliers.find(function (supplier) { return supplier.card.dataset.supplierId === id; }); if (!item || item.quantity <= 0 || item.unitPrice <= 0) return { valid: false }; return { supplierName: item.name, currency: item.currency, unitPrice: item.unitPrice, quantity: item.quantity, moq: item.moq, effectiveCostPerUnit: item.quantity > 0 ? item.totalCost / item.quantity : null, totalCost: item.totalCost, leadTime: item.leadTime, incoterm: item.incoterm }; }, 'Supplier quote');
   reset();
 })();

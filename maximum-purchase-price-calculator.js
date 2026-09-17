@@ -3,6 +3,7 @@
   var symbols = { USD: '$', EUR: '€', GBP: '£', CAD: 'C$', AUD: 'A$' };
   var example = { currency: 'USD', sellingPrice: 29.99, targetMargin: 30, quantity: 1000, marketplaceFees: 1.5, marketplaceFeePercent: 5, freight: 1.2, duty: 0.8, customs: 0.35, localDelivery: 0.9, otherCosts: 0.2 };
   var form = document.getElementById('price-form');
+  var lastResult = null;
 
   function addPercentageFeeField() {
     var feeField = document.getElementById('marketplace-fees').closest('.field');
@@ -54,7 +55,8 @@
     var expectedProfit = sellingPrice - (supplierDisplay + nonProduct);
     if (!valid) { supplierDisplay = 0; expectedProfit = 0; }
     var totalProfit = expectedProfit * quantity;
-    render({ currency: currency, sellingPrice: sellingPrice, margin: margin, quantity: quantity, fees: fees, feePercent: feePercent, percentageFeePerUnit: percentageFeePerUnit, freight: freight, duty: duty, customs: customs, localDelivery: localDelivery, other: other, nonProduct: nonProduct, targetProfit: targetProfit, targetLanded: targetLanded, maxSupplier: supplierDisplay, maxOrder: supplierDisplay * quantity, expectedProfit: expectedProfit, totalProfit: totalProfit, valid: valid });
+    lastResult = { currency: currency, sellingPrice: sellingPrice, margin: margin, quantity: quantity, fees: fees, feePercent: feePercent, percentageFeePerUnit: percentageFeePerUnit, freight: freight, duty: duty, customs: customs, localDelivery: localDelivery, other: other, nonProduct: nonProduct, targetProfit: targetProfit, targetLanded: targetLanded, maxSupplier: supplierDisplay, maxOrder: supplierDisplay * quantity, expectedProfit: expectedProfit, totalProfit: totalProfit, valid: valid };
+    render(lastResult);
   }
 
   function render(data) {
@@ -92,4 +94,5 @@
   document.getElementById('reset-calculator').addEventListener('click', reset);
   form.addEventListener('submit', function (event) { event.preventDefault(); calculate(); });
   reset();
+  if (window.ImportMetricDecisionReport) window.ImportMetricDecisionReport.showAction(document.querySelector('.result-panel'), 'priceCeiling', function () { if (!lastResult || !lastResult.valid) return { valid: false }; return { currency: lastResult.currency, quantity: lastResult.quantity, targetSellingPrice: lastResult.sellingPrice, targetProfitMargin: lastResult.margin, maxSupplierPrice: lastResult.maxSupplier, maxSupplierOrderValue: lastResult.maxOrder, targetLandedCostPerUnit: lastResult.targetLanded, expectedProfitPerUnit: lastResult.expectedProfit, expectedTotalProfit: lastResult.totalProfit, nonProductCostPerUnit: lastResult.nonProduct }; }, 'Price ceiling');
 })();

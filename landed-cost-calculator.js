@@ -10,6 +10,7 @@
   var colors = ['#0d5c5c', '#ee7257', '#d6a64b', '#7d9b91', '#bd7964', '#5d7772', '#9eaa94', '#c4a66a'];
   var example = { currency: 'USD', productCost: 8400, quantity: 1000, incoterm: 'FOB', originCost: 180, freight: 620, insurance: 65, dutyRate: 6.5, customsFees: 145, destinationCost: 230, otherCosts: 55 };
   var form = document.getElementById('cost-form');
+  var lastResult = null;
 
   function value(id, positive, label) {
     var input = document.getElementById(id);
@@ -51,7 +52,8 @@
     var totalSafe = Number.isFinite(total) ? total : 0;
     var percentProduct = totalSafe > 0 ? product / totalSafe * 100 : 0;
     var percentNonProduct = totalSafe > 0 ? nonProduct / totalSafe * 100 : 0;
-    render({ currency: currency, product: product, quantity: quantity, origin: origin, freight: freight, insurance: insurance, dutyRate: dutyRate, dutyBase: dutyBase, duty: duty, customs: customs, destination: destination, other: other, logistics: logistics, nonProduct: nonProduct, total: totalSafe, unit: Number.isFinite(unit) ? unit : 0, percentProduct: percentProduct, percentNonProduct: percentNonProduct, valid: valid });
+    lastResult = { currency: currency, product: product, quantity: quantity, origin: origin, freight: freight, insurance: insurance, dutyRate: dutyRate, dutyBase: dutyBase, duty: duty, customs: customs, destination: destination, other: other, logistics: logistics, nonProduct: nonProduct, total: totalSafe, unit: Number.isFinite(unit) ? unit : 0, percentProduct: percentProduct, percentNonProduct: percentNonProduct, valid: valid };
+    render(lastResult);
   }
 
   function render(result) {
@@ -81,4 +83,5 @@
   document.getElementById('reset-calculator').addEventListener('click', reset);
   form.addEventListener('submit', function (event) { event.preventDefault(); calculate(); });
   reset();
+  if (window.ImportMetricDecisionReport) window.ImportMetricDecisionReport.showAction(document.querySelector('.result-panel'), 'landedCost', function () { if (!lastResult || !lastResult.valid) return { valid: false }; return { currency: lastResult.currency, productPurchaseCost: lastResult.product, quantity: lastResult.quantity, totalLandedCost: lastResult.total, landedCostPerUnit: lastResult.unit, importDuty: lastResult.duty, logisticsCost: lastResult.logistics, nonProductCost: lastResult.nonProduct, nonProductPercent: lastResult.percentNonProduct }; }, 'Landed cost');
 })();

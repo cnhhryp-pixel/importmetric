@@ -3,6 +3,7 @@
   var symbols = { USD: '$', EUR: '€', GBP: '£', CAD: 'C$', AUD: 'A$' };
   var example = { currency: 'USD', supplierMoq: 3000, supplierPrice: 4.5, monthlySales: 500, currentInventory: 200, purchaseBudget: 10000, targetCoverage: 3, storageCost: 0.1 };
   var form = document.getElementById('moq-form');
+  var lastResult = null;
 
   function readNumber(id, label) {
     var input = document.getElementById(id);
@@ -42,7 +43,8 @@
     var shortfall = Math.max(0, orderValue - budget);
     var remaining = Math.max(0, budget - orderValue);
     var storageEstimate = totalAfterOrder * storage;
-    render({ currency: currency, moq: moq, price: price, monthlySales: monthlySales, currentInventory: currentInventory, budget: budget, coverage: coverage, storage: storage, orderValue: orderValue, totalAfterOrder: totalAfterOrder, months: months, targetQuantity: targetQuantity, targetPurchase: targetPurchase, excessUnits: excessUnits, excessCash: excessCash, shortfall: shortfall, remaining: remaining, storageEstimate: storageEstimate });
+    lastResult = { currency: currency, moq: moq, price: price, monthlySales: monthlySales, currentInventory: currentInventory, budget: budget, coverage: coverage, storage: storage, orderValue: orderValue, totalAfterOrder: totalAfterOrder, months: months, targetQuantity: targetQuantity, targetPurchase: targetPurchase, excessUnits: excessUnits, excessCash: excessCash, shortfall: shortfall, remaining: remaining, storageEstimate: storageEstimate };
+    render(lastResult);
   }
 
   function render(data) {
@@ -76,4 +78,5 @@
   document.getElementById('reset-calculator').addEventListener('click', reset);
   form.addEventListener('submit', function (event) { event.preventDefault(); calculate(); });
   reset();
+  if (window.ImportMetricDecisionReport) window.ImportMetricDecisionReport.showAction(document.querySelector('.result-panel'), 'moqRisk', function () { if (!lastResult || lastResult.moq <= 0 || lastResult.price <= 0) return { valid: false }; return { currency: lastResult.currency, supplierMoq: lastResult.moq, supplierPricePerUnit: lastResult.price, moqOrderValue: lastResult.orderValue, expectedMonthlySales: lastResult.monthlySales, currentInventory: lastResult.currentInventory, availablePurchaseBudget: lastResult.budget, targetInventoryCoverage: lastResult.coverage, monthsOfInventory: lastResult.months, targetPurchaseQuantity: lastResult.targetPurchase, negotiationTarget: lastResult.targetPurchase, excessUnits: lastResult.excessUnits, excessCashTiedUp: lastResult.excessCash, budgetShortfall: lastResult.shortfall, budgetRemaining: lastResult.remaining, estimatedMonthlyStorageCost: lastResult.storageEstimate, totalInventoryAfterOrder: lastResult.totalAfterOrder }; }, 'MOQ risk');
 })();
