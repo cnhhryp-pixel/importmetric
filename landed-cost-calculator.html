@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Landed Cost Calculator | Import Cost &amp; Duty Estimate | ImportMetric</title>
+  <meta name="description" content="Use this landed cost calculator to estimate total import cost, landed cost per unit and import duty from purchase, freight, insurance and local delivery costs.">
+  <link rel="canonical" href="https://importmetric.com/landed-cost-calculator.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://importmetric.com/landed-cost-calculator.html">
+  <meta property="og:title" content="Landed Cost Calculator | ImportMetric">
+  <meta property="og:description" content="Estimate total landed cost, landed cost per unit, import duty and logistics costs in your browser.">
+  <meta property="og:site_name" content="ImportMetric">
+  <meta name="theme-color" content="#f5f2eb">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="landed-cost-calculator.css">
+</head>
+<body class="tool-page landed-page">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="ImportMetric home"><span class="brand-mark" aria-hidden="true">IM</span><span class="brand-name">Import<span>Metric</span></span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav"><span class="sr-only">Toggle navigation</span><span></span><span></span></button>
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation"><a href="index.html#tools">Tools</a><a href="index.html#how-it-works">How it works</a><a href="index.html#about">About</a><a class="nav-cta" href="#calculator-inputs">Calculate landed cost <span aria-hidden="true">&#8599;</span></a></nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="tool-hero" aria-labelledby="page-title">
+      <div class="container tool-hero-inner"><div><p class="eyebrow"><span class="eyebrow-dot"></span> Import decision tool 02</p><h1 id="page-title">Landed Cost<br><em>Calculator</em></h1><p class="tool-subtitle">See what your imported goods really cost after purchase, freight, duty, delivery and other expenses are included.</p></div><div class="hero-aside"><span class="hero-aside-number">02</span><p>Turn a purchase price into a clearer cost per unit before you order.</p></div></div>
+    </section>
+
+    <section class="calculator-workspace" id="calculator-inputs" aria-labelledby="inputs-title">
+      <div class="container">
+        <div class="workspace-heading"><div><p class="eyebrow">Step 01 / Cost inputs</p><h2 id="inputs-title">Build the full<br><em>cost picture.</em></h2></div><div class="workspace-actions"><button class="button button-secondary" id="load-example" type="button">Load Example</button><button class="button button-quiet" id="reset-calculator" type="button">Reset</button><p class="example-note">Example values are for demonstration only.</p></div></div>
+        <div class="calculator-grid">
+          <form class="input-panel" id="cost-form" novalidate>
+            <div class="input-group"><div class="input-group-heading"><span class="group-number">01</span><h3>Purchase details</h3></div><div class="field-grid"><div class="field"><label for="currency">Currency</label><select id="currency"><option>USD</option><option>EUR</option><option>GBP</option><option>CAD</option><option>AUD</option></select></div><div class="field"><label for="incoterm">Incoterm</label><select id="incoterm"><option>EXW</option><option>FOB</option><option>CIF</option><option>DDP</option></select></div><div class="field field-wide"><label for="product-cost">Product / Purchase Cost</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="product-cost" type="number" min="0" step="0.01" placeholder="e.g. 8400"></div><p class="field-error" id="product-cost-error"></p></div><div class="field"><label for="quantity">Quantity</label><input id="quantity" type="number" min="0" step="1" placeholder="e.g. 1000"><p class="field-error" id="quantity-error"></p></div></div><p class="incoterm-context" id="incoterm-context"></p></div>
+            <div class="input-group"><div class="input-group-heading"><span class="group-number">02</span><h3>Import and logistics costs</h3></div><div class="field-grid"><div class="field"><label for="origin-cost">Origin / Inland Transport Cost</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="origin-cost" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="origin-cost-error"></p></div><div class="field"><label for="freight">International Freight</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="freight" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="freight-error"></p></div><div class="field"><label for="insurance">Insurance</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="insurance" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="insurance-error"></p></div><div class="field"><label for="duty-rate">Duty Rate (%)</label><div class="input-with-suffix"><input id="duty-rate" type="number" min="0" step="0.01" placeholder="e.g. 6.5"><span>%</span></div><p class="field-error" id="duty-rate-error"></p></div><div class="field"><label for="customs-fees">Customs / Clearance Fees</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="customs-fees" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="customs-fees-error"></p></div><div class="field"><label for="destination-cost">Destination / Local Delivery</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="destination-cost" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="destination-cost-error"></p></div><div class="field field-wide"><label for="other-costs">Other Costs</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="other-costs" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="other-costs-error"></p></div></div><div class="duty-note"><strong>Duty estimate basis</strong><span>Duty Base = Product Cost + International Freight + Insurance</span><small>Actual customs valuation rules vary by country and Incoterm. This is a simplified estimate for planning.</small></div></div>
+          </form>
+          <aside class="result-panel" aria-labelledby="results-title"><div class="result-panel-heading"><p class="eyebrow">Step 02 / Results</p><h2 id="results-title">Your landed<br><em>cost at a glance.</em></h2></div><div class="result-primary"><div><span>TOTAL LANDED COST</span><strong id="total-landed-cost">$0.00</strong></div><div><span>LANDED COST / UNIT</span><strong id="landed-cost-unit">$0.00</strong></div></div><p class="result-status" id="result-status">Enter a product cost and quantity to calculate.</p><div class="breakdown-list" id="breakdown-list"></div></aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="metrics-section" aria-labelledby="metrics-title"><div class="container"><div class="metrics-heading"><p class="eyebrow">The numbers behind the total</p><h2 id="metrics-title">Know what is driving<br><em>your import cost.</em></h2></div><div class="metrics-grid"><div class="metric-card"><span>IMPORT DUTY AMOUNT</span><strong id="duty-amount">$0.00</strong><small id="duty-base-label">Based on a $0.00 duty base</small></div><div class="metric-card"><span>LOGISTICS COST</span><strong id="logistics-cost">$0.00</strong><small>Origin, freight, insurance and destination</small></div><div class="metric-card"><span>NON-PRODUCT COST</span><strong id="non-product-cost">$0.00</strong><small>Every cost above your purchase cost</small></div><div class="metric-card"><span>NON-PRODUCT COST %</span><strong id="non-product-percent">0.0%</strong><small>Share of total landed cost</small></div><div class="metric-card"><span>PRODUCT COST %</span><strong id="product-percent">0.0%</strong><small>Share of total landed cost</small></div><div class="metric-card"><span>ADDITIONAL COST ABOVE PURCHASE</span><strong id="additional-cost">$0.00</strong><small>Total landed cost minus product cost</small></div></div></div></section>
+
+    <section class="explain-section landed-explain" aria-labelledby="explain-title"><div class="container explain-grid"><div><p class="eyebrow">Import cost, made clearer</p><h2 id="explain-title">What is<br><em>landed cost?</em></h2></div><div class="explain-copy"><h3>Landed cost formula</h3><p>Landed cost is the complete cost of getting a product ready for sale at its destination. It combines the purchase cost with transport, insurance, import duty, clearance, delivery and other known expenses.</p><div class="formula">Product + Origin + Freight + Insurance + Duty + Customs + Destination + Other</div><h3>What should importers include?</h3><p>Start with every cost you can reasonably estimate: the supplier invoice, inland transport, international freight, insurance, duty, customs fees, local delivery and costs such as inspection or documentation.</p><h3>EXW vs FOB vs CIF vs DDP</h3><p>EXW often leaves more origin and export work with the buyer. FOB commonly includes delivery to the export port and loading. CIF commonly includes cost, insurance and freight to the destination port. DDP may include delivery and import clearance from the seller. The exact scope can vary, so keep entering the actual costs you know rather than relying on the term alone.</p><h3>Why landed cost per unit matters</h3><p>Unit economics are easier to compare when a shipment's shared costs are spread across the planned quantity. Use landed cost per unit alongside margin, selling price and cash-flow considerations.</p><p><a class="text-link tool-cross-link" href="supplier-quote-comparison.html">Compare supplier quotes first <span aria-hidden="true">&#8594;</span></a></p></div></div></section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-top"><a class="brand brand-footer" href="index.html"><span class="brand-mark" aria-hidden="true">IM</span><span class="brand-name">Import<span>Metric</span></span></a><p>Clearer numbers for better import decisions.</p><nav aria-label="Footer navigation"><a href="index.html#tools">Tools</a><a href="index.html#how-it-works">How it works</a><a href="index.html#about">About</a></nav></div><div class="container footer-bottom"><span>&copy; 2026 ImportMetric. Free sourcing tools for better decisions.</span><span>Built for importers, wholesalers &amp; e-commerce sellers.</span></div></footer>
+  <script src="script.js"></script>
+  <script src="landed-cost-calculator.js"></script>
+</body>
+</html>
