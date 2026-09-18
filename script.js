@@ -1,3 +1,13 @@
+/* ImportMetric site icon */
+(function (document) {
+  if (document.querySelector('link[rel~="icon"]')) return;
+  var icon = document.createElement('link');
+  icon.rel = 'icon';
+  icon.type = 'image/svg+xml';
+  icon.href = window.location.pathname.indexOf('/guides/') === 0 ? '../favicon.svg' : 'favicon.svg';
+  document.head.appendChild(icon);
+})(document);
+
 (function () {
   var toggle = document.querySelector('.menu-toggle');
   var nav = document.querySelector('.main-nav');
