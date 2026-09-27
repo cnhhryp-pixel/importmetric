@@ -39,7 +39,9 @@
     '/supplier-quote-comparison.html': 'supplier_quote_comparison',
     '/landed-cost-calculator.html': 'landed_cost_calculator',
     '/maximum-purchase-price-calculator.html': 'maximum_purchase_price_calculator',
-    '/moq-inventory-risk-calculator.html': 'moq_inventory_risk_calculator'
+    '/moq-inventory-risk-calculator.html': 'moq_inventory_risk_calculator',
+    '/import-profit-margin-calculator.html': 'import_profit_margin_calculator',
+    '/supplier-quote-template.html': 'supplier_quote_template'
   };
 
   function getChoice() {
