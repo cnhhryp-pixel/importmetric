@@ -53,7 +53,9 @@
     '/fob-landed-cost-calculator.html': 'fob_landed_cost_calculator',
     '/break-even-price-calculator.html': 'break_even_price_calculator',
     '/ddp-landed-cost-calculator.html': 'ddp_landed_cost_calculator',
-    '/target-selling-price-calculator.html': 'target_selling_price_calculator'
+    '/target-selling-price-calculator.html': 'target_selling_price_calculator',
+    '/exw-landed-cost-calculator.html': 'exw_landed_cost_calculator',
+    '/import-markup-calculator.html': 'import_markup_calculator'
   };
 
   function getChoice() {
