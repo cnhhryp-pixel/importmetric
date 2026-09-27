@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Break-even Price Calculator | ImportMetric</title>
+  <meta name="description" content="Calculate the break-even selling price and target-margin selling price from supplier cost, freight, duty, fulfillment and percentage selling fees.">
+  <link rel="canonical" href="https://importmetric.com/break-even-price-calculator.html">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://importmetric.com/break-even-price-calculator.html">
+  <meta property="og:title" content="Break-even Price Calculator | ImportMetric">
+  <meta property="og:description" content="Find the selling price that covers your landed and selling costs, including percentage fees.">
+  <meta property="og:site_name" content="ImportMetric">
+  <meta name="theme-color" content="#f5f2eb">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Break-even Price Calculator | ImportMetric">
+  <meta name="twitter:description" content="Calculate break-even and target-margin selling prices for imported products.">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Break-even Price Calculator","url":"https://importmetric.com/break-even-price-calculator.html","description":"Calculate break-even selling price and target-margin selling price from fixed per-unit costs and percentage selling fees.","applicationCategory":"BusinessApplication","operatingSystem":"Any","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"ImportMetric","url":"https://importmetric.com/"}}
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="maximum-purchase-price-calculator.css">
+</head>
+<body class="tool-page maximum-page">
+<header class="site-header"><div class="container header-inner"><a class="brand" href="index.html" aria-label="ImportMetric home"><span class="brand-mark" aria-hidden="true">IM</span><span class="brand-name">Import<span>Metric</span></span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav"><span class="sr-only">Toggle navigation</span><span></span><span></span></button><nav class="main-nav" id="main-nav" aria-label="Main navigation"><a href="index.html#tools">Tools</a><a href="index.html#utility-tools">Utilities</a><a href="index.html#guides">Guides</a><a href="import-decision-report.html">Decision Report</a><a class="nav-cta" href="#calculator-inputs">Find break-even price <span aria-hidden="true">&#8599;</span></a></nav></div></header>
+<main>
+<section class="tool-hero" aria-labelledby="page-title"><div class="container tool-hero-inner"><div><p class="eyebrow"><span class="eyebrow-dot"></span> Pricing and margin tool</p><h1 id="page-title">Break-even Price<br><em>Calculator</em></h1><p class="tool-subtitle">Find the minimum selling price that covers your supplier, import and selling costs, then see the price required for a target margin.</p></div><div class="hero-aside"><span class="hero-aside-number">16</span><p>Price from cost instead of guessing from supplier price alone.</p></div></div></section>
+
+<section class="calculator-workspace" id="calculator-inputs" aria-labelledby="inputs-title"><div class="container"><div class="workspace-heading"><div><p class="eyebrow">Step 01 / Unit economics</p><h2 id="inputs-title">Build your<br><em>cost floor.</em></h2></div><div class="workspace-actions"><button class="button button-secondary" id="load-example" type="button">Load Example</button><button class="button button-quiet" id="reset-calculator" type="button">Reset</button><p class="example-note">All fixed costs below are per unit.</p></div></div>
+<div class="calculator-grid"><form class="input-panel" id="break-form" novalidate>
+<div class="input-group"><div class="input-group-heading"><span class="group-number">01</span><h3>Fixed costs / unit</h3></div><div class="field-grid">
+<div class="field"><label for="currency">Currency</label><select id="currency"><option>USD</option><option>EUR</option><option>GBP</option><option>CAD</option><option>AUD</option></select></div>
+<div class="field"><label for="supplier-cost">Supplier Cost / Unit</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="supplier-cost" type="number" min="0" step="0.01" placeholder="e.g. 12.50"></div><p class="field-error" id="supplier-cost-error"></p></div>
+<div class="field"><label for="freight">Freight / Unit</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="freight" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="freight-error"></p></div>
+<div class="field"><label for="duty">Duty / Tax / Unit</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="duty" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="duty-error"></p></div>
+<div class="field"><label for="fulfillment">Fulfillment / Delivery / Unit</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="fulfillment" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="fulfillment-error"></p></div>
+<div class="field"><label for="other-costs">Other Fixed Costs / Unit</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="other-costs" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="other-costs-error"></p></div>
+</div></div>
+<div class="input-group"><div class="input-group-heading"><span class="group-number">02</span><h3>Percentage costs and target</h3></div><div class="field-grid">
+<div class="field"><label for="selling-fee-rate">Selling / Marketplace Fee (%)</label><div class="input-with-suffix"><input id="selling-fee-rate" type="number" min="0" max="99" step="0.1" placeholder="e.g. 10"><span>%</span></div><p class="field-error" id="selling-fee-rate-error"></p></div>
+<div class="field"><label for="target-margin">Target Profit Margin (%)</label><div class="input-with-suffix"><input id="target-margin" type="number" min="0" max="99" step="0.1" placeholder="e.g. 30"><span>%</span></div><p class="field-error" id="target-margin-error"></p></div>
+</div><p class="group-note">The target-margin calculation requires selling fee % + target margin % to stay below 100%.</p></div>
+</form>
+<aside class="result-panel" aria-labelledby="results-title"><div class="result-panel-heading"><p class="eyebrow">Step 02 / Price floor</p><h2 id="results-title">Your minimum<br><em>selling price.</em></h2></div>
+<div class="result-primary"><div><span>BREAK-EVEN SELLING PRICE</span><strong id="break-even">$0.00</strong></div><div><span>PRICE FOR TARGET MARGIN</span><strong id="target-price">$0.00</strong></div></div>
+<p class="result-status" id="result-status">Enter supplier cost and any other costs to calculate.</p>
+<div class="result-metrics"><div><span>FIXED COST / UNIT</span><strong id="fixed-cost">$0.00</strong></div><div><span>BREAK-EVEN FEE / UNIT</span><strong id="break-fee">$0.00</strong></div><div><span>TARGET PRICE FEE / UNIT</span><strong id="target-fee">$0.00</strong></div><div><span>TARGET PROFIT / UNIT</span><strong id="target-profit">$0.00</strong></div><div><span>PRICE ABOVE BREAK-EVEN</span><strong id="price-gap">$0.00</strong></div><div><span>COST SHARE AT TARGET PRICE</span><strong id="cost-share">0.0%</strong></div></div>
+</aside></div></div></section>
+
+<section class="formula-section" aria-labelledby="formula-title"><div class="container formula-grid"><div><p class="eyebrow">The pricing math</p><h2 id="formula-title">Percentage fees change<br><em>the break-even point.</em></h2></div><div class="formula-copy"><p>If a marketplace or payment fee is charged as a percentage of selling price, simply adding that percentage to your fixed cost understates the price required to break even.</p><div class="formula-card"><strong>Break-even selling price</strong><span>Fixed cost / (1 &minus; selling fee rate)</span></div><div class="formula-card"><strong>Price for target margin</strong><span>Fixed cost / (1 &minus; selling fee rate &minus; target margin)</span></div><p class="formula-footnote">This is a planning calculation. Add advertising, returns, taxes and other variable costs when they materially affect your unit economics.</p><p><a class="text-link tool-cross-link" href="import-profit-margin-calculator.html">Check margin at a known selling price <span aria-hidden="true">&#8599;</span></a></p><p><a class="text-link tool-cross-link" href="maximum-purchase-price-calculator.html">Work backwards to a supplier price ceiling <span aria-hidden="true">&#8594;</span></a></p></div></div></section>
+</main>
+<footer class="site-footer"><div class="container footer-top"><a class="brand brand-footer" href="index.html"><span class="brand-mark" aria-hidden="true">IM</span><span class="brand-name">Import<span>Metric</span></span></a><p>Clearer numbers for better import decisions.</p><nav aria-label="Footer navigation"><a href="index.html#tools">Tools</a><a href="index.html#utility-tools">Utilities</a><a href="privacy.html">Privacy</a></nav></div><div class="container footer-bottom"><span>&copy; 2026 ImportMetric.</span><span>Built for importers, wholesalers &amp; e-commerce sellers.</span></div></footer>
+<script src="script.js?v=9"></script><script src="break-even-price-calculator.js?v=1"></script>
+</body></html>
