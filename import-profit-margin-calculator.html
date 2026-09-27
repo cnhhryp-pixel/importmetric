@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Import Profit Margin Calculator | ImportMetric</title>
+  <meta name="description" content="Calculate import profit margin, landed cost per unit, profit per unit, markup and total profit from supplier, freight, duty and selling costs.">
+  <link rel="canonical" href="https://importmetric.com/import-profit-margin-calculator.html">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://importmetric.com/import-profit-margin-calculator.html">
+  <meta property="og:title" content="Import Profit Margin Calculator | ImportMetric">
+  <meta property="og:description" content="Calculate landed cost, profit per unit, margin, markup and total profit for an import order.">
+  <meta property="og:site_name" content="ImportMetric">
+  <meta name="theme-color" content="#f5f2eb">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Import Profit Margin Calculator | ImportMetric">
+  <meta name="twitter:description" content="Check import profit margin after supplier, freight, duty, fees and other costs.">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Import Profit Margin Calculator","url":"https://importmetric.com/import-profit-margin-calculator.html","description":"Calculate import profit margin, landed cost per unit, profit per unit, markup and total profit.","applicationCategory":"BusinessApplication","operatingSystem":"Any","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"ImportMetric","url":"https://importmetric.com/"}}
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="maximum-purchase-price-calculator.css">
+</head>
+<body class="tool-page maximum-page">
+<header class="site-header"><div class="container header-inner"><a class="brand" href="index.html" aria-label="ImportMetric home"><span class="brand-mark" aria-hidden="true">IM</span><span class="brand-name">Import<span>Metric</span></span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav"><span class="sr-only">Toggle navigation</span><span></span><span></span></button><nav class="main-nav" id="main-nav" aria-label="Main navigation"><a href="index.html#tools">Tools</a><a href="index.html#guides">Guides</a><a href="import-decision-report.html">Decision Report</a><a href="index.html#workflow">How it works</a><a href="index.html#about">About</a><a class="nav-cta" href="#calculator-inputs">Calculate margin <span aria-hidden="true">&#8599;</span></a></nav></div></header>
+<main>
+<section class="tool-hero" aria-labelledby="page-title"><div class="container tool-hero-inner"><div><p class="eyebrow"><span class="eyebrow-dot"></span> Import profitability tool</p><h1 id="page-title">Import Profit<br><em>Margin Calculator</em></h1><p class="tool-subtitle">Check whether your selling price still leaves enough profit after supplier cost, freight, duty, selling fees and other per-unit import costs.</p></div><div class="hero-aside"><span class="hero-aside-number">05</span><p>Turn landed cost into a clearer margin and profit view before you order.</p></div></div></section>
+
+<section class="calculator-workspace" id="calculator-inputs" aria-labelledby="inputs-title"><div class="container"><div class="workspace-heading"><div><p class="eyebrow">Step 01 / Unit economics</p><h2 id="inputs-title">Build your<br><em>profit picture.</em></h2></div><div class="workspace-actions"><button class="button button-secondary" id="load-example" type="button">Load Example</button><button class="button button-quiet" id="reset-calculator" type="button">Reset</button><p class="example-note">Example values are for demonstration only.</p></div></div>
+<div class="calculator-grid"><form class="input-panel" id="margin-form" novalidate>
+<div class="input-group"><div class="input-group-heading"><span class="group-number">01</span><h3>Sales and purchase</h3></div><div class="field-grid">
+<div class="field"><label for="currency">Currency</label><select id="currency"><option>USD</option><option>EUR</option><option>GBP</option><option>CAD</option><option>AUD</option></select></div>
+<div class="field"><label for="quantity">Quantity</label><input id="quantity" type="number" min="0" step="1" placeholder="e.g. 1000"><p class="field-error" id="quantity-error"></p></div>
+<div class="field"><label for="selling-price">Selling Price / Unit</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="selling-price" type="number" min="0" step="0.01" placeholder="e.g. 29.99"></div><p class="field-error" id="selling-price-error"></p></div>
+<div class="field"><label for="supplier-cost">Supplier Cost / Unit</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="supplier-cost" type="number" min="0" step="0.01" placeholder="e.g. 12.50"></div><p class="field-error" id="supplier-cost-error"></p></div>
+</div></div>
+<div class="input-group"><div class="input-group-heading"><span class="group-number">02</span><h3>Other costs / unit</h3></div><p class="group-note">Enter costs on a per-unit basis. If a shipment-level cost is shared across units, divide it by the order quantity first.</p><div class="field-grid">
+<div class="field"><label for="freight">Freight / Unit</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="freight" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="freight-error"></p></div>
+<div class="field"><label for="duty">Duty / Tax / Unit</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="duty" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="duty-error"></p></div>
+<div class="field"><label for="selling-fees">Selling / Marketplace Fees / Unit</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="selling-fees" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="selling-fees-error"></p></div>
+<div class="field"><label for="other-costs">Other Costs / Unit</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="other-costs" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="other-costs-error"></p></div>
+</div></div>
+</form>
+<aside class="result-panel" aria-labelledby="results-title"><div class="result-panel-heading"><p class="eyebrow">Step 02 / Profitability</p><h2 id="results-title">Your margin<br><em>at a glance.</em></h2></div>
+<div class="result-primary"><div><span>PROFIT MARGIN</span><strong id="profit-margin">0.0%</strong></div><div><span>PROFIT / UNIT</span><strong id="profit-unit">$0.00</strong></div></div>
+<p class="result-status" id="result-status">Enter a selling price and supplier cost to calculate.</p>
+<div class="result-metrics"><div><span>LANDED + SELLING COST / UNIT</span><strong id="total-cost-unit">$0.00</strong></div><div><span>MARKUP ON COST</span><strong id="markup">0.0%</strong></div><div><span>TOTAL REVENUE</span><strong id="total-revenue">$0.00</strong></div><div><span>EST. TOTAL PROFIT</span><strong id="total-profit">$0.00</strong></div><div><span>BREAK-EVEN SELLING PRICE</span><strong id="break-even">$0.00</strong></div><div><span>NON-SUPPLIER COST / UNIT</span><strong id="non-supplier-cost">$0.00</strong></div></div>
+</aside></div></div></section>
+
+<section class="formula-section" aria-labelledby="formula-title"><div class="container formula-grid"><div><p class="eyebrow">The profitability math</p><h2 id="formula-title">Margin is not<br><em>markup.</em></h2></div><div class="formula-copy"><p>Profit margin measures profit as a share of selling price. Markup measures profit relative to cost. Importers often need both because freight, duty and selling fees can materially change unit economics.</p><div class="formula-card"><strong>Profit margin</strong><span>(Selling price &minus; total unit cost) &divide; selling price &times; 100</span></div><div class="formula-card"><strong>Markup on cost</strong><span>(Selling price &minus; total unit cost) &divide; total unit cost &times; 100</span></div><p class="formula-footnote">This is a planning tool. Include returns, taxes, advertising, payment fees and other costs when they apply to your business.</p></div></div></section>
+
+<section class="faq-section" aria-labelledby="faq-title"><div class="container faq-grid"><div><p class="eyebrow">Common margin questions</p><h2 id="faq-title">Before you<br><em>place the order.</em></h2></div><div class="faq-list"><details open><summary>What costs should I include?</summary><p>Include supplier cost plus every per-unit cost that affects your economics, such as freight, duty, customs, fulfillment, marketplace fees, payment fees and other known costs.</p></details><details><summary>What is the difference between margin and markup?</summary><p>Margin divides profit by selling price. Markup divides profit by cost. The percentages are different even when the dollar profit is the same.</p></details><details><summary>What if profit is negative?</summary><p>A negative result means the entered selling price is below the total entered cost per unit. Review pricing, supplier cost or the other cost assumptions before committing to the order.</p></details></div></div></section>
+
+<section class="related-tools" aria-labelledby="related-title"><div class="container"><p class="eyebrow">Continue the decision</p><h2 id="related-title">Connect the <em>numbers.</em></h2><div class="related-links"><a href="landed-cost-calculator.html"><span>02</span><strong>Landed Cost Calculator</strong><small>Estimate the full cost of getting goods to their destination.</small><b aria-hidden="true">&#8599;</b></a><a href="maximum-purchase-price-calculator.html"><span>03</span><strong>Maximum Purchase Price</strong><small>Work backwards from your target margin to a supplier price ceiling.</small><b aria-hidden="true">&#8599;</b></a><a href="supplier-quote-template.html"><span>06</span><strong>Supplier Quote Template</strong><small>Collect supplier quotes in a consistent comparison format.</small><b aria-hidden="true">&#8599;</b></a></div></div></section>
+</main>
+<footer class="site-footer"><div class="container footer-top"><a class="brand brand-footer" href="index.html"><span class="brand-mark" aria-hidden="true">IM</span><span class="brand-name">Import<span>Metric</span></span></a><p>Clearer numbers for better import decisions.</p><nav aria-label="Footer navigation"><a href="index.html#tools">Tools</a><a href="index.html#guides">Guides</a><a href="import-decision-report.html">Decision Report</a><a class="footer-privacy" href="privacy.html">Privacy</a></nav></div><div class="container footer-bottom"><span>&copy; 2026 ImportMetric.</span><span>Built for importers, wholesalers &amp; e-commerce sellers.</span></div></footer>
+<script src="script.js?v=4"></script><script src="import-profit-margin-calculator.js?v=1"></script>
+</body>
+</html>
