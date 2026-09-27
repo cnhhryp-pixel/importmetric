@@ -47,7 +47,9 @@
     '/moq-calculator.html': 'moq_calculator',
     '/fob-vs-cif-calculator.html': 'fob_vs_cif_calculator',
     '/import-cost-per-unit-calculator.html': 'import_cost_per_unit_calculator',
-    '/inventory-coverage-calculator.html': 'inventory_coverage_calculator'
+    '/inventory-coverage-calculator.html': 'inventory_coverage_calculator',
+    '/supplier-price-comparison-calculator.html': 'supplier_price_comparison_calculator',
+    '/cif-landed-cost-calculator.html': 'cif_landed_cost_calculator'
   };
 
   function getChoice() {
