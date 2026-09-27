@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Import Duty Calculator | ImportMetric</title>
+  <meta name="description" content="Estimate import duty and optional import tax from product value, freight, insurance and duty rates using a simplified customs-value planning model.">
+  <link rel="canonical" href="https://importmetric.com/import-duty-calculator.html">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://importmetric.com/import-duty-calculator.html">
+  <meta property="og:title" content="Import Duty Calculator | ImportMetric">
+  <meta property="og:description" content="Estimate import duty and optional import tax from a simplified customs value.">
+  <meta property="og:site_name" content="ImportMetric">
+  <meta name="theme-color" content="#f5f2eb">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Import Duty Calculator | ImportMetric">
+  <meta name="twitter:description" content="Estimate duty and import tax for sourcing and landed-cost planning.">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Import Duty Calculator","url":"https://importmetric.com/import-duty-calculator.html","description":"Estimate import duty and optional import tax from product value, freight, insurance and entered tax rates using a simplified planning model.","applicationCategory":"BusinessApplication","operatingSystem":"Any","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"ImportMetric","url":"https://importmetric.com/"}}
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="landed-cost-calculator.css">
+</head>
+<body class="tool-page landed-page">
+<header class="site-header"><div class="container header-inner"><a class="brand" href="index.html" aria-label="ImportMetric home"><span class="brand-mark" aria-hidden="true">IM</span><span class="brand-name">Import<span>Metric</span></span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav"><span class="sr-only">Toggle navigation</span><span></span><span></span></button><nav class="main-nav" id="main-nav" aria-label="Main navigation"><a href="index.html#tools">Tools</a><a href="index.html#utility-tools">Utilities</a><a href="index.html#guides">Guides</a><a href="import-decision-report.html">Decision Report</a><a class="nav-cta" href="#calculator-inputs">Estimate duty <span aria-hidden="true">&#8599;</span></a></nav></div></header>
+<main>
+<section class="tool-hero" aria-labelledby="page-title"><div class="container tool-hero-inner"><div><p class="eyebrow"><span class="eyebrow-dot"></span> Import tax planning tool</p><h1 id="page-title">Import Duty<br><em>Calculator</em></h1><p class="tool-subtitle">Estimate import duty from product value, freight and insurance, with an optional additional import-tax estimate for planning purposes.</p></div><div class="hero-aside"><span class="hero-aside-number">08</span><p>Use the duty rate for your product and destination market.</p></div></div></section>
+
+<section class="calculator-workspace" id="calculator-inputs" aria-labelledby="inputs-title"><div class="container"><div class="workspace-heading"><div><p class="eyebrow">Step 01 / Customs inputs</p><h2 id="inputs-title">Estimate the<br><em>border cost.</em></h2></div><div class="workspace-actions"><button class="button button-secondary" id="load-example" type="button">Load Example</button><button class="button button-quiet" id="reset-calculator" type="button">Reset</button><p class="example-note">Example values are for demonstration only.</p></div></div>
+<div class="calculator-grid"><form class="input-panel" id="duty-form" novalidate>
+<div class="input-group"><div class="input-group-heading"><span class="group-number">01</span><h3>Declared values</h3></div><div class="field-grid">
+<div class="field"><label for="currency">Currency</label><select id="currency"><option>USD</option><option>EUR</option><option>GBP</option><option>CAD</option><option>AUD</option></select></div>
+<div class="field"><label for="quantity">Quantity <small>(optional)</small></label><input id="quantity" type="number" min="0" step="1" placeholder="e.g. 1000"><p class="field-error" id="quantity-error"></p></div>
+<div class="field field-wide"><label for="product-value">Product / Customs Value</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="product-value" type="number" min="0" step="0.01" placeholder="e.g. 8400"></div><p class="field-error" id="product-value-error"></p></div>
+<div class="field"><label for="freight">International Freight</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="freight" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="freight-error"></p></div>
+<div class="field"><label for="insurance">Insurance</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="insurance" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="insurance-error"></p></div>
+</div></div>
+<div class="input-group"><div class="input-group-heading"><span class="group-number">02</span><h3>Rates</h3></div><div class="field-grid">
+<div class="field"><label for="duty-rate">Duty Rate (%)</label><div class="input-with-suffix"><input id="duty-rate" type="number" min="0" max="100" step="0.01" placeholder="e.g. 6.5"><span>%</span></div><p class="field-error" id="duty-rate-error"></p></div>
+<div class="field"><label for="tax-rate">Additional Import Tax / VAT Rate (%) <small>(optional)</small></label><div class="input-with-suffix"><input id="tax-rate" type="number" min="0" max="100" step="0.01" placeholder="e.g. 0"><span>%</span></div><p class="field-error" id="tax-rate-error"></p></div>
+</div><div class="duty-note"><strong>Simplified planning basis</strong><span>Duty Base = Product Value + International Freight + Insurance</span><small>Customs valuation, tax bases, exemptions and rates vary by product and jurisdiction. Confirm the actual rules before importing.</small></div></div>
+</form>
+<aside class="result-panel" aria-labelledby="results-title"><div class="result-panel-heading"><p class="eyebrow">Step 02 / Border estimate</p><h2 id="results-title">Your duty<br><em>estimate.</em></h2></div>
+<div class="result-primary"><div><span>EST. IMPORT DUTY</span><strong id="duty-amount">$0.00</strong></div><div><span>EST. DUTY + TAX</span><strong id="total-border-tax">$0.00</strong></div></div>
+<p class="result-status" id="result-status">Enter a customs value and duty rate to calculate.</p>
+<div class="result-metrics"><div><span>SIMPLIFIED DUTY BASE</span><strong id="duty-base">$0.00</strong></div><div><span>OPTIONAL IMPORT TAX</span><strong id="tax-amount">$0.00</strong></div><div><span>BORDER COST / UNIT</span><strong id="border-per-unit">Unavailable</strong></div><div><span>DUTY / UNIT</span><strong id="duty-per-unit">Unavailable</strong></div><div><span>TOTAL AFTER DUTY + TAX</span><strong id="after-border">$0.00</strong></div><div><span>EFFECTIVE BORDER RATE</span><strong id="effective-rate">0.0%</strong></div></div>
+</aside></div></div></section>
+
+<section class="formula-section" aria-labelledby="formula-title"><div class="container formula-grid"><div><p class="eyebrow">The planning formula</p><h2 id="formula-title">Use the right rate<br><em>for the right product.</em></h2></div><div class="formula-copy"><p>The calculator applies your entered duty rate to a simplified base made from product value, international freight and insurance. If you enter an additional import-tax rate, the tool applies it to the simplified duty base plus estimated duty.</p><div class="formula-card"><strong>Estimated duty</strong><span>(Product value + freight + insurance) &times; duty rate</span></div><div class="formula-card"><strong>Optional import tax</strong><span>(Simplified duty base + estimated duty) &times; entered tax rate</span></div><p class="formula-footnote">This is not a tariff database and does not determine your HS/CN code or legal duty rate. Use official customs sources or a qualified broker to confirm classification and import charges.</p></div></div></section>
+
+<section class="related-tools" aria-labelledby="related-title"><div class="container"><p class="eyebrow">Continue the workflow</p><h2 id="related-title">Duty belongs inside<br><em>landed cost.</em></h2><div class="related-links"><a href="landed-cost-calculator.html"><span>02</span><strong>Landed Cost Calculator</strong><small>Combine product, logistics and border costs into one estimate.</small><b aria-hidden="true">&#8599;</b></a><a href="freight-cost-per-unit-calculator.html"><span>07</span><strong>Freight Cost per Unit</strong><small>Spread shipping and handling costs across your quantity.</small><b aria-hidden="true">&#8599;</b></a><a href="import-profit-margin-calculator.html"><span>05</span><strong>Import Profit Margin</strong><small>See how duty changes your final unit economics.</small><b aria-hidden="true">&#8599;</b></a></div></div></section>
+</main>
+<footer class="site-footer"><div class="container footer-top"><a class="brand brand-footer" href="index.html"><span class="brand-mark" aria-hidden="true">IM</span><span class="brand-name">Import<span>Metric</span></span></a><p>Clearer numbers for better import decisions.</p><nav aria-label="Footer navigation"><a href="index.html#tools">Tools</a><a href="index.html#utility-tools">Utilities</a><a href="index.html#guides">Guides</a><a href="privacy.html">Privacy</a></nav></div><div class="container footer-bottom"><span>&copy; 2026 ImportMetric.</span><span>Built for importers, wholesalers &amp; e-commerce sellers.</span></div></footer>
+<script src="script.js?v=5"></script><script src="import-duty-calculator.js?v=1"></script>
+</body>
+</html>
