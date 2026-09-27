@@ -56,6 +56,16 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://importmetric.com/import-cost-per-unit-calculator.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://importmetric.com/inventory-coverage-calculator.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://importmetric.com/import-decision-report.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
