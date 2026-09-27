@@ -1,0 +1,17 @@
+(function(){
+'use strict';
+var symbols={USD:'$',EUR:'€',GBP:'£',CAD:'C$',AUD:'A$'},ids=['quantity','fob-unit-price','fob-freight','fob-insurance','fob-destination','cif-unit-price','cif-destination'];
+var example={currency:'USD',quantity:1000,fobUnitPrice:7.50,fobFreight:850,fobInsurance:65,fobDestination:300,cifUnitPrice:8.60,cifDestination:360};
+function money(v,c){try{return new Intl.NumberFormat('en-US',{style:'currency',currency:c,maximumFractionDigits:2}).format(Number.isFinite(v)?v:0);}catch(e){return(symbols[c]||'')+(Number.isFinite(v)?v.toFixed(2):'0.00');}}
+function read(id,positive){var el=document.getElementById(id),raw=el.value.trim(),n=raw===''?0:Number(raw),bad=!Number.isFinite(n)||n<0||(positive&&n<=0),err=document.getElementById(id+'-error');el.classList.toggle('input-error',bad&&raw!=='');if(raw!==''&&!Number.isFinite(n))err.textContent='Enter a valid number.';else if(raw!==''&&n<0)err.textContent='Negative values are not allowed.';else if(positive&&raw!==''&&n<=0)err.textContent='Value must be greater than 0.';else err.textContent='';return bad?0:n;}
+function calc(){var c=document.getElementById('currency').value,q=read('quantity',true),fobPrice=read('fob-unit-price',true),fobFreight=read('fob-freight',false),fobInsurance=read('fob-insurance',false),fobDest=read('fob-destination',false),cifPrice=read('cif-unit-price',true),cifDest=read('cif-destination',false);
+var fobProduct=fobPrice*q,cifProduct=cifPrice*q,fobAdd=fobFreight+fobInsurance+fobDest,cifAdd=cifDest,fobTotal=fobProduct+fobAdd,cifTotal=cifProduct+cifAdd,fobUnit=q>0?fobTotal/q:0,cifUnit=q>0?cifTotal/q:0,diff=Math.abs(fobUnit-cifUnit);
+document.getElementById('fob-product').textContent=money(fobProduct,c);document.getElementById('fob-addons').textContent=money(fobAdd,c);document.getElementById('fob-total').textContent=money(fobTotal,c);document.getElementById('fob-per-unit').textContent=money(fobUnit,c);
+document.getElementById('cif-product').textContent=money(cifProduct,c);document.getElementById('cif-addons').textContent=money(cifAdd,c);document.getElementById('cif-total').textContent=money(cifTotal,c);document.getElementById('cif-per-unit').textContent=money(cifUnit,c);
+document.getElementById('fob-diff').textContent=money(diff,c);document.getElementById('cif-diff').textContent=money(diff,c);
+var ready=q>0&&fobPrice>0&&cifPrice>0;document.getElementById('comparison-status').textContent=!ready?'Enter both quotes and a quantity to compare normalized pre-duty cost.':Math.abs(fobUnit-cifUnit)<0.0001?'The normalized pre-duty costs are effectively the same with the entered assumptions.':(fobUnit<cifUnit?'FOB is lower by ':'CIF is lower by ')+money(diff,c)+' per unit on this simplified pre-duty basis.';
+}
+function setExample(){Object.keys(example).forEach(function(k){var id=k.replace(/[A-Z]/g,function(x){return'-'+x.toLowerCase();}),el=document.getElementById(id);if(el)el.value=example[k];});document.getElementById('currency').value=example.currency;calc();}
+function reset(){ids.forEach(function(id){document.getElementById(id).value='';});document.getElementById('currency').value='USD';document.querySelectorAll('.field-error').forEach(function(el){el.textContent='';});calc();}
+ids.forEach(function(id){document.getElementById(id).addEventListener('input',calc);});document.getElementById('currency').addEventListener('change',calc);document.getElementById('load-example').addEventListener('click',setExample);document.getElementById('reset-calculator').addEventListener('click',reset);calc();
+})();
