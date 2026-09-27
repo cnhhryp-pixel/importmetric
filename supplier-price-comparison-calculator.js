@@ -1,0 +1,15 @@
+(function(){
+'use strict';
+var symbols={USD:'$',EUR:'€',GBP:'£',CAD:'C$',AUD:'A$'},ids=['quantity','a-price','a-moq','a-extra','b-price','b-moq','b-extra'];
+var example={currency:'USD',quantity:1000,aPrice:8.40,aMoq:500,aExtra:665,bPrice:7.95,bMoq:1000,bExtra:935};
+function money(v,c){try{return new Intl.NumberFormat('en-US',{style:'currency',currency:c,maximumFractionDigits:2}).format(Number.isFinite(v)?v:0);}catch(e){return(symbols[c]||'')+(Number.isFinite(v)?v.toFixed(2):'0.00');}}
+function read(id,positive){var el=document.getElementById(id),raw=el.value.trim(),n=raw===''?0:Number(raw),bad=!Number.isFinite(n)||n<0||(positive&&n<=0),err=document.getElementById(id+'-error');el.classList.toggle('input-error',bad&&raw!=='');if(raw!==''&&!Number.isFinite(n))err.textContent='Enter a valid number.';else if(raw!==''&&n<0)err.textContent='Negative values are not allowed.';else if(positive&&raw!==''&&n<=0)err.textContent='Value must be greater than 0.';else err.textContent='';return bad?0:n;}
+function calc(){var c=document.getElementById('currency').value,q=read('quantity',true),ap=read('a-price',true),amoq=read('a-moq',false),ae=read('a-extra',false),bp=read('b-price',true),bmoq=read('b-moq',false),be=read('b-extra',false);
+var aProduct=ap*q,bProduct=bp*q,aTotal=aProduct+ae,bTotal=bProduct+be,aEff=q>0?aTotal/q:0,bEff=q>0?bTotal/q:0,diff=Math.abs(aEff-bEff),ready=q>0&&ap>0&&bp>0;
+[['a',ap,amoq,ae,aProduct,aTotal,aEff],['b',bp,bmoq,be,bProduct,bTotal,bEff]].forEach(function(x){document.getElementById(x[0]+'-price-out').textContent=money(x[1],c);document.getElementById(x[0]+'-moq-out').textContent=Math.round(x[2]);document.getElementById(x[0]+'-extra-out').textContent=money(x[3],c);document.getElementById(x[0]+'-product').textContent=money(x[4],c);document.getElementById(x[0]+'-total').textContent=money(x[5],c);document.getElementById(x[0]+'-effective').textContent=money(x[6],c);document.getElementById(x[0]+'-status').textContent=q>0&&x[2]>0?(q>=x[2]?'Meets MOQ':'Below MOQ'):'—';});
+document.getElementById('comparison-status').textContent=!ready?'Enter both supplier prices and an order quantity to compare.':Math.abs(aEff-bEff)<0.0001?'Both suppliers have the same effective cost per unit with the entered assumptions.':(aEff<bEff?'Supplier A':'Supplier B')+' is lower by '+money(diff,c)+' per unit on this normalized basis.';
+}
+function setExample(){Object.keys(example).forEach(function(k){var id=k.replace(/[A-Z]/g,function(x){return'-'+x.toLowerCase();}),el=document.getElementById(id);if(el)el.value=example[k];});document.getElementById('currency').value=example.currency;calc();}
+function reset(){ids.forEach(function(id){document.getElementById(id).value='';});document.getElementById('currency').value='USD';document.querySelectorAll('.field-error').forEach(function(el){el.textContent='';});calc();}
+ids.forEach(function(id){document.getElementById(id).addEventListener('input',calc);});document.getElementById('currency').addEventListener('change',calc);document.getElementById('load-example').addEventListener('click',setExample);document.getElementById('reset-calculator').addEventListener('click',reset);calc();
+})();

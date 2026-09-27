@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Supplier Price Comparison Calculator | ImportMetric</title>
+  <meta name="description" content="Compare supplier unit prices, MOQ, order quantity and extra order costs to see total order cost and effective cost per unit side by side.">
+  <link rel="canonical" href="https://importmetric.com/supplier-price-comparison-calculator.html">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://importmetric.com/supplier-price-comparison-calculator.html">
+  <meta property="og:title" content="Supplier Price Comparison Calculator | ImportMetric">
+  <meta property="og:description" content="Compare supplier unit prices, MOQ and order-level costs on one normalized basis.">
+  <meta property="og:site_name" content="ImportMetric">
+  <meta name="theme-color" content="#f5f2eb">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Supplier Price Comparison Calculator | ImportMetric">
+  <meta name="twitter:description" content="Compare supplier price, MOQ, total order cost and effective cost per unit.">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Supplier Price Comparison Calculator","url":"https://importmetric.com/supplier-price-comparison-calculator.html","description":"Compare supplier unit prices, MOQ, order quantity and order-level costs to calculate total and effective cost per unit.","applicationCategory":"BusinessApplication","operatingSystem":"Any","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"ImportMetric","url":"https://importmetric.com/"}}
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="supplier-quote-comparison.css">
+</head>
+<body class="tool-page">
+<header class="site-header"><div class="container header-inner"><a class="brand" href="index.html" aria-label="ImportMetric home"><span class="brand-mark" aria-hidden="true">IM</span><span class="brand-name">Import<span>Metric</span></span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav"><span class="sr-only">Toggle navigation</span><span></span><span></span></button><nav class="main-nav" id="main-nav" aria-label="Main navigation"><a href="index.html#tools">Tools</a><a href="index.html#utility-tools">Utilities</a><a href="index.html#guides">Guides</a><a href="import-decision-report.html">Decision Report</a><a class="nav-cta" href="#comparison-inputs">Compare supplier prices <span aria-hidden="true">&#8599;</span></a></nav></div></header>
+<main>
+<section class="tool-hero" aria-labelledby="page-title"><div class="container tool-hero-inner"><div><p class="eyebrow"><span class="eyebrow-dot"></span> Quick supplier comparison</p><h1 id="page-title">Supplier Price<br><em>Comparison Calculator</em></h1><p class="tool-subtitle">Compare two supplier offers by unit price, MOQ and extra order costs to see the normalized total and effective cost per unit.</p></div><div class="hero-aside"><span class="hero-aside-number">13</span><p>A fast price comparison before the full quote review.</p></div></div></section>
+
+<section class="quote-workspace" id="comparison-inputs" aria-labelledby="inputs-title"><div class="container"><div class="workspace-heading"><div><p class="eyebrow">Step 01 / Supplier inputs</p><h2 id="inputs-title">Compare more than<br><em>the quoted price.</em></h2></div><div class="workspace-actions"><button class="button button-secondary" id="load-example" type="button">Load Example</button><button class="button button-quiet" id="reset-calculator" type="button">Reset</button><p class="example-note">Use the same currency for both suppliers.</p></div></div>
+<div class="supplier-grid">
+<div class="supplier-card"><div class="supplier-heading"><div><span class="supplier-index">A</span><h3>Supplier A</h3></div></div><div class="field-grid">
+<div class="field"><label for="currency">Currency</label><select id="currency"><option>USD</option><option>EUR</option><option>GBP</option><option>CAD</option><option>AUD</option></select></div>
+<div class="field"><label for="quantity">Order Quantity</label><input id="quantity" type="number" min="0" step="1" placeholder="e.g. 1000"><p class="field-error" id="quantity-error"></p></div>
+<div class="field"><label for="a-price">Unit Price</label><input id="a-price" type="number" min="0" step="0.01" placeholder="e.g. 8.40"><p class="field-error" id="a-price-error"></p></div>
+<div class="field"><label for="a-moq">MOQ</label><input id="a-moq" type="number" min="0" step="1" placeholder="e.g. 500"><p class="field-error" id="a-moq-error"></p></div>
+<div class="field field-wide"><label for="a-extra">Extra Order Costs</label><input id="a-extra" type="number" min="0" step="0.01" placeholder="e.g. 665"><p class="field-error" id="a-extra-error"></p></div>
+</div></div>
+<div class="supplier-card"><div class="supplier-heading"><div><span class="supplier-index">B</span><h3>Supplier B</h3></div></div><div class="field-grid">
+<div class="field"><label for="b-price">Unit Price</label><input id="b-price" type="number" min="0" step="0.01" placeholder="e.g. 7.95"><p class="field-error" id="b-price-error"></p></div>
+<div class="field"><label for="b-moq">MOQ</label><input id="b-moq" type="number" min="0" step="1" placeholder="e.g. 1000"><p class="field-error" id="b-moq-error"></p></div>
+<div class="field field-wide"><label for="b-extra">Extra Order Costs</label><input id="b-extra" type="number" min="0" step="0.01" placeholder="e.g. 935"><p class="field-error" id="b-extra-error"></p></div>
+</div></div>
+</div>
+<div class="comparison-notice" id="comparison-status" role="status">Enter both supplier prices and an order quantity to compare.</div>
+<div class="table-wrap"><table class="comparison-table"><caption class="sr-only">Supplier price comparison</caption><thead><tr><th>Supplier</th><th>Unit Price</th><th>MOQ</th><th>Product Cost</th><th>Extra Costs</th><th>Total Order Cost</th><th>Effective Cost / Unit</th><th>MOQ Status</th></tr></thead><tbody><tr><td><strong>A</strong></td><td id="a-price-out">$0.00</td><td id="a-moq-out">0</td><td id="a-product">$0.00</td><td id="a-extra-out">$0.00</td><td id="a-total">$0.00</td><td id="a-effective">$0.00</td><td id="a-status">—</td></tr><tr><td><strong>B</strong></td><td id="b-price-out">$0.00</td><td id="b-moq-out">0</td><td id="b-product">$0.00</td><td id="b-extra-out">$0.00</td><td id="b-total">$0.00</td><td id="b-effective">$0.00</td><td id="b-status">—</td></tr></tbody></table></div>
+</div></section>
+
+<section class="explain-section" aria-labelledby="explain-title"><div class="container explain-grid"><div><p class="eyebrow">A fast normalized comparison</p><h2 id="explain-title">Unit price is only<br><em>the starting point.</em></h2></div><div class="explain-copy"><p>Extra order costs can include freight, duty, inspection, documentation or any other charge you want to normalize across suppliers. Divide the normalized order total by quantity to compare effective cost per unit.</p><p>For Incoterms, lead time and detailed import costs, use the full Supplier Quote Comparison Tool.</p><p><a class="text-link tool-cross-link" href="supplier-quote-comparison.html">Open full supplier quote comparison <span aria-hidden="true">&#8594;</span></a></p><p><a class="text-link tool-cross-link" href="supplier-quote-template.html">Use the supplier quote comparison template <span aria-hidden="true">&#8599;</span></a></p></div></div></section>
+</main>
+<footer class="site-footer"><div class="container footer-top"><a class="brand brand-footer" href="index.html"><span class="brand-mark" aria-hidden="true">IM</span><span class="brand-name">Import<span>Metric</span></span></a><p>Clearer numbers for better import decisions.</p><nav aria-label="Footer navigation"><a href="index.html#tools">Tools</a><a href="index.html#utility-tools">Utilities</a><a href="privacy.html">Privacy</a></nav></div><div class="container footer-bottom"><span>&copy; 2026 ImportMetric.</span><span>Built for importers, wholesalers &amp; e-commerce sellers.</span></div></footer>
+<script src="script.js?v=8"></script><script src="supplier-price-comparison-calculator.js?v=1"></script>
+</body></html>
