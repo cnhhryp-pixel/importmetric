@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DDP Landed Cost Calculator | ImportMetric</title>
+  <meta name="description" content="Estimate effective delivered cost from a DDP unit price by adding buyer-side receiving, inspection, payment and other local costs.">
+  <link rel="canonical" href="https://importmetric.com/ddp-landed-cost-calculator.html">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://importmetric.com/ddp-landed-cost-calculator.html">
+  <meta property="og:title" content="DDP Landed Cost Calculator | ImportMetric">
+  <meta property="og:description" content="Turn a DDP supplier quote into an effective delivered cost per unit.">
+  <meta property="og:site_name" content="ImportMetric">
+  <meta name="theme-color" content="#f5f2eb">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="DDP Landed Cost Calculator | ImportMetric">
+  <meta name="twitter:description" content="Estimate DDP delivered cost plus buyer-side receiving and local costs.">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"DDP Landed Cost Calculator","url":"https://importmetric.com/ddp-landed-cost-calculator.html","description":"Estimate effective delivered cost from a DDP unit price plus buyer-side receiving, inspection, payment and other local costs.","applicationCategory":"BusinessApplication","operatingSystem":"Any","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"ImportMetric","url":"https://importmetric.com/"}}
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="landed-cost-calculator.css">
+</head>
+<body class="tool-page landed-page">
+<header class="site-header"><div class="container header-inner"><a class="brand" href="index.html" aria-label="ImportMetric home"><span class="brand-mark" aria-hidden="true">IM</span><span class="brand-name">Import<span>Metric</span></span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav"><span class="sr-only">Toggle navigation</span><span></span><span></span></button><nav class="main-nav" id="main-nav" aria-label="Main navigation"><a href="index.html#tools">Tools</a><a href="index.html#utility-tools">Utilities</a><a href="index.html#guides">Guides</a><a href="import-decision-report.html">Decision Report</a><a class="nav-cta" href="#calculator-inputs">Calculate DDP cost <span aria-hidden="true">&#8599;</span></a></nav></div></header>
+<main>
+<section class="tool-hero" aria-labelledby="page-title"><div class="container tool-hero-inner"><div><p class="eyebrow"><span class="eyebrow-dot"></span> DDP import planning tool</p><h1 id="page-title">DDP Landed Cost<br><em>Calculator</em></h1><p class="tool-subtitle">Start with the supplier's DDP price, then add the buyer-side costs that still affect your real delivered cost per unit.</p></div><div class="hero-aside"><span class="hero-aside-number">17</span><p>DDP can simplify the quote, but your buyer-side costs can still matter.</p></div></div></section>
+
+<section class="calculator-workspace" id="calculator-inputs" aria-labelledby="inputs-title"><div class="container"><div class="workspace-heading"><div><p class="eyebrow">Step 01 / DDP quote</p><h2 id="inputs-title">Start with the<br><em>delivered supplier price.</em></h2></div><div class="workspace-actions"><button class="button button-secondary" id="load-example" type="button">Load Example</button><button class="button button-quiet" id="reset-calculator" type="button">Reset</button><p class="example-note">Example values are for demonstration only.</p></div></div>
+<div class="calculator-grid"><form class="input-panel" id="ddp-form" novalidate>
+<div class="input-group"><div class="input-group-heading"><span class="group-number">01</span><h3>DDP purchase</h3></div><div class="field-grid">
+<div class="field"><label for="currency">Currency</label><select id="currency"><option>USD</option><option>EUR</option><option>GBP</option><option>CAD</option><option>AUD</option></select></div>
+<div class="field"><label for="quantity">Quantity</label><input id="quantity" type="number" min="0" step="1" placeholder="e.g. 1000"><p class="field-error" id="quantity-error"></p></div>
+<div class="field field-wide"><label for="ddp-unit-price">DDP Unit Price</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="ddp-unit-price" type="number" min="0" step="0.01" placeholder="e.g. 11.20"></div><p class="field-error" id="ddp-unit-price-error"></p></div>
+</div></div>
+<div class="input-group"><div class="input-group-heading"><span class="group-number">02</span><h3>Buyer-side costs</h3></div><div class="field-grid">
+<div class="field"><label for="receiving">Receiving / Unloading</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="receiving" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="receiving-error"></p></div>
+<div class="field"><label for="inspection">Inspection / Quality Control</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="inspection" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="inspection-error"></p></div>
+<div class="field"><label for="payment">Bank / Payment Fees</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="payment" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="payment-error"></p></div>
+<div class="field"><label for="local-costs">Local Handling / Storage</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="local-costs" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="local-costs-error"></p></div>
+<div class="field field-wide"><label for="other-costs">Other Buyer Costs</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="other-costs" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="other-costs-error"></p></div>
+</div><div class="duty-note"><strong>DDP scope reminder</strong><span>DDP generally places the main delivery and import obligations on the seller to the named place.</span><small>Confirm exactly what the supplier quote includes, who is importer of record, and how local VAT/GST or recoverable taxes are handled in your market.</small></div></div>
+</form>
+<aside class="result-panel" aria-labelledby="results-title"><div class="result-panel-heading"><p class="eyebrow">Step 02 / Effective delivered cost</p><h2 id="results-title">Your DDP cost<br><em>per unit.</em></h2></div>
+<div class="result-primary"><div><span>TOTAL EFFECTIVE COST</span><strong id="total-cost">$0.00</strong></div><div><span>EFFECTIVE COST / UNIT</span><strong id="cost-unit">$0.00</strong></div></div><p class="result-status" id="result-status">Enter DDP unit price and quantity to calculate.</p>
+<div class="result-metrics"><div><span>DDP ORDER VALUE</span><strong id="ddp-value">$0.00</strong></div><div><span>BUYER-SIDE COSTS</span><strong id="buyer-costs">$0.00</strong></div><div><span>BUYER COST / UNIT</span><strong id="buyer-unit">$0.00</strong></div><div><span>BUYER COST SHARE</span><strong id="buyer-share">0.0%</strong></div><div><span>DDP PRICE / UNIT</span><strong id="ddp-unit">$0.00</strong></div><div><span>COST ABOVE DDP PRICE</span><strong id="above-ddp">$0.00</strong></div></div>
+</aside></div></div></section>
+
+<section class="formula-section" aria-labelledby="formula-title"><div class="container formula-grid"><div><p class="eyebrow">DDP to real unit cost</p><h2 id="formula-title">Delivered does not always mean<br><em>zero buyer cost.</em></h2></div><div class="formula-copy"><p>A DDP quote can bundle more of the transport and import process into the supplier price, but the buyer may still have receiving, inspection, banking, local handling or other commercial costs.</p><div class="formula-card"><strong>Effective DDP cost / unit</strong><span>(DDP order value + buyer-side costs) &divide; quantity</span></div><p class="formula-footnote">Use the supplier's written quotation and local tax treatment when deciding whether every import-side charge is actually included.</p><p><a class="text-link tool-cross-link" href="fob-landed-cost-calculator.html">Compare with FOB landed cost <span aria-hidden="true">&#8599;</span></a></p><p><a class="text-link tool-cross-link" href="guides/exw-vs-fob-vs-cif-vs-ddp.html">Read the Incoterms comparison guide <span aria-hidden="true">&#8594;</span></a></p></div></div></section>
+</main>
+<footer class="site-footer"><div class="container footer-top"><a class="brand brand-footer" href="index.html"><span class="brand-mark" aria-hidden="true">IM</span><span class="brand-name">Import<span>Metric</span></span></a><p>Clearer numbers for better import decisions.</p><nav aria-label="Footer navigation"><a href="index.html#tools">Tools</a><a href="index.html#utility-tools">Utilities</a><a href="privacy.html">Privacy</a></nav></div><div class="container footer-bottom"><span>&copy; 2026 ImportMetric.</span><span>Built for importers, wholesalers &amp; e-commerce sellers.</span></div></footer>
+<script src="script.js?v=10"></script><script src="ddp-landed-cost-calculator.js?v=1"></script>
+</body></html>

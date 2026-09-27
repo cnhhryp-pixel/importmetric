@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Target Selling Price Calculator | ImportMetric</title>
+  <meta name="description" content="Calculate the selling price required for a target profit margin after landed cost, fulfillment, fixed selling costs and percentage marketplace fees.">
+  <link rel="canonical" href="https://importmetric.com/target-selling-price-calculator.html">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://importmetric.com/target-selling-price-calculator.html">
+  <meta property="og:title" content="Target Selling Price Calculator | ImportMetric">
+  <meta property="og:description" content="Work forward from landed cost to the selling price required for your target margin.">
+  <meta property="og:site_name" content="ImportMetric">
+  <meta name="theme-color" content="#f5f2eb">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Target Selling Price Calculator | ImportMetric">
+  <meta name="twitter:description" content="Calculate a target selling price after costs, fees and desired margin.">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Target Selling Price Calculator","url":"https://importmetric.com/target-selling-price-calculator.html","description":"Calculate the selling price required for a target profit margin after landed cost, fixed selling costs and percentage fees.","applicationCategory":"BusinessApplication","operatingSystem":"Any","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"ImportMetric","url":"https://importmetric.com/"}}
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="maximum-purchase-price-calculator.css">
+</head>
+<body class="tool-page maximum-page">
+<header class="site-header"><div class="container header-inner"><a class="brand" href="index.html" aria-label="ImportMetric home"><span class="brand-mark" aria-hidden="true">IM</span><span class="brand-name">Import<span>Metric</span></span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav"><span class="sr-only">Toggle navigation</span><span></span><span></span></button><nav class="main-nav" id="main-nav" aria-label="Main navigation"><a href="index.html#tools">Tools</a><a href="index.html#utility-tools">Utilities</a><a href="index.html#guides">Guides</a><a href="import-decision-report.html">Decision Report</a><a class="nav-cta" href="#calculator-inputs">Find target price <span aria-hidden="true">&#8599;</span></a></nav></div></header>
+<main>
+<section class="tool-hero" aria-labelledby="page-title"><div class="container tool-hero-inner"><div><p class="eyebrow"><span class="eyebrow-dot"></span> Pricing and margin tool</p><h1 id="page-title">Target Selling Price<br><em>Calculator</em></h1><p class="tool-subtitle">Start from your landed cost and target margin to calculate the selling price needed after fulfillment, fixed selling costs and percentage fees.</p></div><div class="hero-aside"><span class="hero-aside-number">18</span><p>Move from sourcing cost to a practical selling-price target.</p></div></div></section>
+
+<section class="calculator-workspace" id="calculator-inputs" aria-labelledby="inputs-title"><div class="container"><div class="workspace-heading"><div><p class="eyebrow">Step 01 / Pricing inputs</p><h2 id="inputs-title">Price from cost<br><em>and margin.</em></h2></div><div class="workspace-actions"><button class="button button-secondary" id="load-example" type="button">Load Example</button><button class="button button-quiet" id="reset-calculator" type="button">Reset</button><p class="example-note">Fixed costs are entered per unit.</p></div></div>
+<div class="calculator-grid"><form class="input-panel" id="target-price-form" novalidate>
+<div class="input-group"><div class="input-group-heading"><span class="group-number">01</span><h3>Cost base / unit</h3></div><div class="field-grid">
+<div class="field"><label for="currency">Currency</label><select id="currency"><option>USD</option><option>EUR</option><option>GBP</option><option>CAD</option><option>AUD</option></select></div>
+<div class="field"><label for="landed-cost">Landed Cost / Unit</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="landed-cost" type="number" min="0" step="0.01" placeholder="e.g. 17.50"></div><p class="field-error" id="landed-cost-error"></p></div>
+<div class="field"><label for="fulfillment">Fulfillment / Delivery / Unit</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="fulfillment" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="fulfillment-error"></p></div>
+<div class="field"><label for="fixed-selling-cost">Other Fixed Selling Cost / Unit</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="fixed-selling-cost" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="fixed-selling-cost-error"></p></div>
+</div></div>
+<div class="input-group"><div class="input-group-heading"><span class="group-number">02</span><h3>Fees and margin</h3></div><div class="field-grid">
+<div class="field"><label for="selling-fee-rate">Selling / Marketplace Fee (%)</label><div class="input-with-suffix"><input id="selling-fee-rate" type="number" min="0" max="99" step="0.1" placeholder="e.g. 10"><span>%</span></div><p class="field-error" id="selling-fee-rate-error"></p></div>
+<div class="field"><label for="target-margin">Target Profit Margin (%)</label><div class="input-with-suffix"><input id="target-margin" type="number" min="0" max="99" step="0.1" placeholder="e.g. 30"><span>%</span></div><p class="field-error" id="target-margin-error"></p></div>
+</div><p class="group-note">Selling fee % + target margin % must remain below 100%.</p></div>
+</form>
+<aside class="result-panel" aria-labelledby="results-title"><div class="result-panel-heading"><p class="eyebrow">Step 02 / Price target</p><h2 id="results-title">Your required<br><em>selling price.</em></h2></div>
+<div class="result-primary"><div><span>TARGET SELLING PRICE</span><strong id="target-price">$0.00</strong></div><div><span>BREAK-EVEN PRICE</span><strong id="break-even">$0.00</strong></div></div>
+<p class="result-status" id="result-status">Enter landed cost and target margin to calculate.</p>
+<div class="result-metrics"><div><span>FIXED COST / UNIT</span><strong id="fixed-cost">$0.00</strong></div><div><span>SELLING FEE / UNIT</span><strong id="selling-fee">$0.00</strong></div><div><span>TARGET PROFIT / UNIT</span><strong id="target-profit">$0.00</strong></div><div><span>PRICE ABOVE BREAK-EVEN</span><strong id="price-gap">$0.00</strong></div><div><span>LANDed COST SHARE OF PRICE</span><strong id="landed-share">0.0%</strong></div><div><span>TOTAL FIXED COST SHARE</span><strong id="fixed-share">0.0%</strong></div></div>
+</aside></div></div></section>
+
+<section class="formula-section" aria-labelledby="formula-title"><div class="container formula-grid"><div><p class="eyebrow">The target-price math</p><h2 id="formula-title">Work forward<br><em>from landed cost.</em></h2></div><div class="formula-copy"><p>The target selling price needs to cover fixed unit costs, percentage selling fees and your desired profit margin at the same time.</p><div class="formula-card"><strong>Target selling price</strong><span>Fixed unit cost / (1 &minus; selling fee rate &minus; target margin)</span></div><div class="formula-card"><strong>Break-even price</strong><span>Fixed unit cost / (1 &minus; selling fee rate)</span></div><p class="formula-footnote">Add advertising, returns, taxes and other variable costs when they materially affect your economics.</p><p><a class="text-link tool-cross-link" href="break-even-price-calculator.html">Open break-even price calculator <span aria-hidden="true">&#8599;</span></a></p><p><a class="text-link tool-cross-link" href="maximum-purchase-price-calculator.html">Work backwards to a supplier price ceiling <span aria-hidden="true">&#8594;</span></a></p></div></div></section>
+</main>
+<footer class="site-footer"><div class="container footer-top"><a class="brand brand-footer" href="index.html"><span class="brand-mark" aria-hidden="true">IM</span><span class="brand-name">Import<span>Metric</span></span></a><p>Clearer numbers for better import decisions.</p><nav aria-label="Footer navigation"><a href="index.html#tools">Tools</a><a href="index.html#utility-tools">Utilities</a><a href="privacy.html">Privacy</a></nav></div><div class="container footer-bottom"><span>&copy; 2026 ImportMetric.</span><span>Built for importers, wholesalers &amp; e-commerce sellers.</span></div></footer>
+<script src="script.js?v=10"></script><script src="target-selling-price-calculator.js?v=1"></script>
+</body></html>
