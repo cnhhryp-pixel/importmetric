@@ -63,3 +63,19 @@ h1 em, h2 em { color: var(--coral); font-style: normal; }
 .consent-banner{position:fixed;left:20px;right:20px;bottom:20px;z-index:1000;max-width:760px;margin:0 auto;padding:18px 20px;background:#103f40;color:#f7f3ea;border:1px solid rgba(255,255,255,.16);box-shadow:0 14px 40px rgba(15,47,48,.22);display:flex;gap:18px;align-items:center;justify-content:space-between}
 .consent-banner[hidden]{display:none}.consent-copy{max-width:520px}.consent-copy strong{display:block;margin-bottom:4px;font-size:1rem}.consent-copy p{margin:0;font-size:.86rem;line-height:1.55;color:rgba(255,255,255,.82)}.consent-copy a{color:#fff;text-decoration:underline;text-underline-offset:3px}.consent-actions{display:flex;gap:9px;flex:0 0 auto}.consent-button{appearance:none;border:1px solid rgba(255,255,255,.55);padding:10px 13px;font:inherit;font-weight:700;cursor:pointer;background:transparent;color:#fff}.consent-button.accept{background:#ef765e;border-color:#ef765e;color:#fff}.consent-button:focus-visible{outline:3px solid #fff;outline-offset:2px}.privacy-page .tool-copy{max-width:780px}.privacy-content{padding:70px 0 90px}.privacy-content .container{max-width:860px}.privacy-content section{padding:26px 0;border-bottom:1px solid rgba(16,63,64,.14)}.privacy-content h2{margin:0 0 12px;font-size:clamp(1.35rem,2vw,1.8rem)}.privacy-content p,.privacy-content li{line-height:1.75}.privacy-content ul{padding-left:1.2rem}.privacy-note{padding:18px 20px;background:#ece8dd;border-left:3px solid #ef765e}.footer-privacy{white-space:nowrap}
 @media(max-width:680px){.consent-banner{left:12px;right:12px;bottom:12px;display:block;padding:16px}.consent-actions{margin-top:14px}.consent-button{flex:1}.privacy-content{padding:48px 0 70px}}
+
+
+/* SEO guide hub */
+.guides-section{padding:108px 0 116px;background:var(--white)}
+.guides-heading{margin-bottom:42px}
+.guide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.guide-card{min-height:270px;padding:28px 27px;position:relative;background:var(--cream);border:1px solid transparent;transition:transform .2s ease,border-color .2s ease,background .2s ease}
+.guide-card:hover{transform:translateY(-4px);background:#f0ece3;border-color:rgba(13,92,92,.18)}
+.guide-index{color:var(--coral);font:500 10px 'DM Mono',monospace;letter-spacing:.09em;text-transform:uppercase}
+.guide-card h3{margin:38px 0 14px;font-size:21px;line-height:1.15;letter-spacing:-.045em}
+.guide-card p{margin:0 0 42px;color:var(--muted);font-size:12px;line-height:1.6}
+.guide-card b{position:absolute;left:27px;bottom:24px;color:var(--teal);font-size:11px}
+.guide-card b span{margin-left:5px;color:var(--coral);font-size:16px}
+:where(a,button,input,select,textarea,summary):focus-visible{outline:3px solid var(--coral);outline-offset:3px}
+@media(max-width:800px){.guides-section{padding:75px 0}.guide-grid{grid-template-columns:1fr}.guide-card{min-height:225px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
