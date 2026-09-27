@@ -43,7 +43,9 @@
     '/import-profit-margin-calculator.html': 'import_profit_margin_calculator',
     '/supplier-quote-template.html': 'supplier_quote_template',
     '/freight-cost-per-unit-calculator.html': 'freight_cost_per_unit_calculator',
-    '/import-duty-calculator.html': 'import_duty_calculator'
+    '/import-duty-calculator.html': 'import_duty_calculator',
+    '/moq-calculator.html': 'moq_calculator',
+    '/fob-vs-cif-calculator.html': 'fob_vs_cif_calculator'
   };
 
   function getChoice() {
