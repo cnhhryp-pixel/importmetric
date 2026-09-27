@@ -137,3 +137,25 @@ h1 em, h2 em { color: var(--coral); font-style: normal; }
 .directory-cta h2 em{color:var(--coral);font-style:normal}
 @media(max-width:1000px){.tool-directory-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:800px){.utility-all-cta,.directory-cta-inner{display:block}.utility-all-cta .button,.directory-cta .button{margin-top:18px}.tool-directory-hero-inner,.tool-category-heading{grid-template-columns:1fr;gap:28px}.directory-summary{justify-self:start;border-left:0;padding-left:0}.tool-category{padding:66px 0}.tool-directory-grid{grid-template-columns:1fr}.directory-card{min-height:225px}}
+
+
+/* Tool intent + FAQ reinforcement */
+.tool-intent-section{padding:88px 0 96px;background:var(--paper)}
+.tool-intent-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:start}
+.tool-intent-grid h2{margin:10px 0 0;font-size:clamp(36px,4.5vw,56px);line-height:.97;letter-spacing:-.055em}
+.tool-intent-grid h2 em{color:var(--coral);font-style:normal}
+.intent-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.intent-card{padding:24px;background:var(--white);border-top:3px solid var(--teal)}
+.intent-card.intent-alt{border-top-color:var(--coral)}
+.intent-card h3{margin:0 0 12px;font-size:17px;letter-spacing:-.035em}
+.intent-card p{margin:0;color:var(--muted);font-size:12px;line-height:1.7}
+.intent-card a{display:inline-block;margin-top:14px;color:var(--teal);font-size:11px;font-weight:800}
+.quick-faq-section{padding:88px 0 100px;background:var(--white)}
+.quick-faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px}
+.quick-faq-grid h2{margin:10px 0 0;font-size:clamp(34px,4.2vw,52px);line-height:.98;letter-spacing:-.05em}
+.quick-faq-grid h2 em{color:var(--coral);font-style:normal}
+.quick-faq-list{border-top:1px solid var(--line)}
+.quick-faq-list details{padding:18px 0;border-bottom:1px solid var(--line)}
+.quick-faq-list summary{cursor:pointer;color:var(--ink);font-size:14px;font-weight:800}
+.quick-faq-list p{max-width:620px;margin:11px 0 0;color:var(--muted);font-size:12px;line-height:1.7}
+@media(max-width:800px){.tool-intent-section,.quick-faq-section{padding:68px 0 76px}.tool-intent-grid,.quick-faq-grid{grid-template-columns:1fr;gap:30px}.intent-cards{grid-template-columns:1fr}}
