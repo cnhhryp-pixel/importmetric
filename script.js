@@ -41,7 +41,9 @@
     '/maximum-purchase-price-calculator.html': 'maximum_purchase_price_calculator',
     '/moq-inventory-risk-calculator.html': 'moq_inventory_risk_calculator',
     '/import-profit-margin-calculator.html': 'import_profit_margin_calculator',
-    '/supplier-quote-template.html': 'supplier_quote_template'
+    '/supplier-quote-template.html': 'supplier_quote_template',
+    '/freight-cost-per-unit-calculator.html': 'freight_cost_per_unit_calculator',
+    '/import-duty-calculator.html': 'import_duty_calculator'
   };
 
   function getChoice() {
