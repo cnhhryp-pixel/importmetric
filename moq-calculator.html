@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MOQ Calculator — Order Value & Inventory Coverage | ImportMetric</title>
+  <meta name="description" content="Calculate MOQ order value, months of inventory, target purchase quantity, excess units and excess cash from supplier MOQ and expected sales.">
+  <link rel="canonical" href="https://importmetric.com/moq-calculator.html">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://importmetric.com/moq-calculator.html">
+  <meta property="og:title" content="MOQ Calculator | ImportMetric">
+  <meta property="og:description" content="Turn a supplier MOQ into order value, inventory coverage and excess-stock estimates.">
+  <meta property="og:site_name" content="ImportMetric">
+  <meta name="theme-color" content="#f5f2eb">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="MOQ Calculator | ImportMetric">
+  <meta name="twitter:description" content="Calculate MOQ order value, inventory coverage and excess units.">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"MOQ Calculator","url":"https://importmetric.com/moq-calculator.html","description":"Calculate MOQ order value, inventory coverage, target purchase quantity, excess units and excess cash.","applicationCategory":"BusinessApplication","operatingSystem":"Any","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"ImportMetric","url":"https://importmetric.com/"}}
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="moq-inventory-risk-calculator.css">
+</head>
+<body class="tool-page moq-page">
+<header class="site-header"><div class="container header-inner"><a class="brand" href="index.html" aria-label="ImportMetric home"><span class="brand-mark" aria-hidden="true">IM</span><span class="brand-name">Import<span>Metric</span></span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav"><span class="sr-only">Toggle navigation</span><span></span><span></span></button><nav class="main-nav" id="main-nav" aria-label="Main navigation"><a href="index.html#tools">Tools</a><a href="index.html#utility-tools">Utilities</a><a href="index.html#guides">Guides</a><a href="import-decision-report.html">Decision Report</a><a class="nav-cta" href="#calculator-inputs">Calculate MOQ <span aria-hidden="true">&#8599;</span></a></nav></div></header>
+<main>
+<section class="tool-hero" aria-labelledby="page-title"><div class="container tool-hero-inner"><div><p class="eyebrow"><span class="eyebrow-dot"></span> Quick inventory planning tool</p><h1 id="page-title">MOQ<br><em>Calculator</em></h1><p class="tool-subtitle">See what a supplier minimum means for cash, inventory coverage and excess stock before you agree to the order quantity.</p></div><div class="hero-aside"><span class="hero-aside-number">09</span><p>A quick MOQ check before the deeper inventory-risk analysis.</p></div></div></section>
+<section class="calculator-workspace" id="calculator-inputs" aria-labelledby="inputs-title"><div class="container"><div class="workspace-heading"><div><p class="eyebrow">Step 01 / MOQ inputs</p><h2 id="inputs-title">Put the minimum<br><em>against demand.</em></h2></div><div class="workspace-actions"><button class="button button-secondary" id="load-example" type="button">Load Example</button><button class="button button-quiet" id="reset-calculator" type="button">Reset</button><p class="example-note">Example values are for demonstration only.</p></div></div>
+<div class="calculator-grid"><form class="input-panel" id="moq-quick-form" novalidate><div class="input-group"><div class="input-group-heading"><span class="group-number">01</span><h3>Supplier minimum</h3></div><div class="field-grid">
+<div class="field"><label for="currency">Currency</label><select id="currency"><option>USD</option><option>EUR</option><option>GBP</option><option>CAD</option><option>AUD</option></select></div>
+<div class="field"><label for="supplier-moq">Supplier MOQ</label><input id="supplier-moq" type="number" min="0" step="1" placeholder="e.g. 3000"><p class="field-error" id="supplier-moq-error"></p></div>
+<div class="field"><label for="unit-price">Supplier Price / Unit</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="unit-price" type="number" min="0" step="0.01" placeholder="e.g. 4.50"></div><p class="field-error" id="unit-price-error"></p></div>
+<div class="field"><label for="monthly-sales">Expected Monthly Sales</label><input id="monthly-sales" type="number" min="0" step="1" placeholder="e.g. 500"><p class="field-error" id="monthly-sales-error"></p></div>
+<div class="field"><label for="current-inventory">Current Inventory</label><input id="current-inventory" type="number" min="0" step="1" placeholder="e.g. 200"><p class="field-error" id="current-inventory-error"></p></div>
+<div class="field"><label for="target-coverage">Target Coverage</label><div class="input-with-suffix"><input id="target-coverage" type="number" min="0" step="0.1" placeholder="e.g. 3"><span>mo</span></div><p class="field-error" id="target-coverage-error"></p></div>
+</div></div></form>
+<aside class="result-panel" aria-labelledby="results-title"><div class="result-panel-heading"><p class="eyebrow">Step 02 / MOQ view</p><h2 id="results-title">What does the MOQ<br><em>commit?</em></h2></div><div class="result-primary"><div><span>MOQ ORDER VALUE</span><strong id="order-value">$0.00</strong></div><div><span>MONTHS OF INVENTORY</span><strong id="months-coverage">Unavailable</strong></div></div><p class="result-status" id="result-status">Enter MOQ, price and expected monthly sales to calculate.</p><div class="result-metrics"><div><span>TOTAL INVENTORY AFTER ORDER</span><strong id="post-inventory">0 units</strong></div><div><span>TARGET PURCHASE QUANTITY</span><strong id="target-purchase">0 units</strong></div><div><span>EXCESS UNITS VS TARGET</span><strong id="excess-units">0 units</strong></div><div><span>EXCESS CASH VS TARGET</span><strong id="excess-cash">$0.00</strong></div><div><span>MOQ VS TARGET</span><strong id="moq-gap">0 units</strong></div><div><span>ORDER VALUE / MONTH OF SALES</span><strong id="cash-per-month">Unavailable</strong></div></div></aside></div></div></section>
+<section class="formula-section" aria-labelledby="formula-title"><div class="container formula-grid"><div><p class="eyebrow">The quick MOQ math</p><h2 id="formula-title">Minimum order<br><em>meets demand.</em></h2></div><div class="formula-copy"><p>Compare the supplier MOQ with the quantity you actually need for your target inventory coverage. This helps separate a production minimum from your own demand plan.</p><div class="formula-card"><strong>Target purchase quantity</strong><span>Expected monthly sales &times; target coverage &minus; current inventory</span></div><div class="formula-card"><strong>Months of inventory after MOQ</strong><span>(Current inventory + supplier MOQ) &divide; expected monthly sales</span></div><p class="formula-footnote">This quick calculator does not include budget limits or storage costs. Use the advanced MOQ &amp; Inventory Risk Calculator for those inputs.</p><p><a class="text-link tool-cross-link" href="moq-inventory-risk-calculator.html">Open advanced MOQ &amp; inventory risk calculator <span aria-hidden="true">&#8599;</span></a></p></div></div></section>
+</main>
+<footer class="site-footer"><div class="container footer-top"><a class="brand brand-footer" href="index.html"><span class="brand-mark" aria-hidden="true">IM</span><span class="brand-name">Import<span>Metric</span></span></a><p>Clearer numbers for better import decisions.</p><nav aria-label="Footer navigation"><a href="index.html#tools">Tools</a><a href="index.html#utility-tools">Utilities</a><a href="privacy.html">Privacy</a></nav></div><div class="container footer-bottom"><span>&copy; 2026 ImportMetric.</span><span>Built for importers, wholesalers &amp; e-commerce sellers.</span></div></footer>
+<script src="script.js?v=6"></script><script src="moq-calculator.js?v=1"></script>
+</body></html>

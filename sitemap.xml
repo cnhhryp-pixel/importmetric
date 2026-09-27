@@ -46,6 +46,16 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://importmetric.com/moq-calculator.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://importmetric.com/fob-vs-cif-calculator.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://importmetric.com/import-decision-report.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
