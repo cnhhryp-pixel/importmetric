@@ -1,0 +1,16 @@
+(function(){
+'use strict';
+var symbols={USD:'$',EUR:'€',GBP:'£',CAD:'C$',AUD:'A$'},ids=['quantity','ddp-unit-price','receiving','inspection','payment','local-costs','other-costs'];
+var example={currency:'USD',quantity:1000,ddpUnitPrice:11.20,receiving:120,inspection:180,payment:65,localCosts:90,otherCosts:45};
+function money(v,c){try{return new Intl.NumberFormat('en-US',{style:'currency',currency:c,maximumFractionDigits:2}).format(Number.isFinite(v)?v:0);}catch(e){return(symbols[c]||'')+(Number.isFinite(v)?v.toFixed(2):'0.00');}}
+function read(id,positive){var el=document.getElementById(id),raw=el.value.trim(),n=raw===''?0:Number(raw),bad=!Number.isFinite(n)||n<0||(positive&&n<=0),err=document.getElementById(id+'-error');el.classList.toggle('input-error',bad&&raw!=='');if(raw!==''&&!Number.isFinite(n))err.textContent='Enter a valid number.';else if(raw!==''&&n<0)err.textContent='Negative values are not allowed.';else if(positive&&raw!==''&&n<=0)err.textContent='Value must be greater than 0.';else err.textContent='';return bad?0:n;}
+function calc(){var c=document.getElementById('currency').value,q=read('quantity',true),price=read('ddp-unit-price',true),receiving=read('receiving',false),inspection=read('inspection',false),payment=read('payment',false),local=read('local-costs',false),other=read('other-costs',false);
+var ddp=price*q,buyer=receiving+inspection+payment+local+other,total=ddp+buyer,unit=q>0?total/q:0,buyerUnit=q>0?buyer/q:0,share=total>0?buyer/total*100:0;
+document.querySelectorAll('[data-currency-symbol]').forEach(function(el){el.textContent=symbols[c]||c;});
+document.getElementById('total-cost').textContent=money(total,c);document.getElementById('cost-unit').textContent=money(unit,c);document.getElementById('ddp-value').textContent=money(ddp,c);document.getElementById('buyer-costs').textContent=money(buyer,c);document.getElementById('buyer-unit').textContent=money(buyerUnit,c);document.getElementById('buyer-share').textContent=share.toFixed(1)+'%';document.getElementById('ddp-unit').textContent=money(price,c);document.getElementById('above-ddp').textContent=money(buyerUnit,c);
+document.getElementById('result-status').textContent=q<=0||price<=0?'Enter DDP unit price and quantity to calculate.':'Use the effective cost per unit when comparing DDP with FOB, CIF or local purchase options.';
+}
+function setExample(){Object.keys(example).forEach(function(k){var id=k.replace(/[A-Z]/g,function(x){return'-'+x.toLowerCase();}),el=document.getElementById(id);if(el)el.value=example[k];});document.getElementById('currency').value=example.currency;calc();}
+function reset(){ids.forEach(function(id){document.getElementById(id).value='';});document.getElementById('currency').value='USD';document.querySelectorAll('.field-error').forEach(function(el){el.textContent='';});calc();}
+ids.forEach(function(id){document.getElementById(id).addEventListener('input',calc);});document.getElementById('currency').addEventListener('change',calc);document.getElementById('load-example').addEventListener('click',setExample);document.getElementById('reset-calculator').addEventListener('click',reset);calc();
+})();
