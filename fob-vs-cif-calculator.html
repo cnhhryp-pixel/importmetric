@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FOB vs CIF Calculator — Compare Supplier Quotes | ImportMetric</title>
+  <meta name="description" content="Compare FOB and CIF supplier quotes on a normalized pre-duty cost basis by adding freight, insurance and destination charges.">
+  <link rel="canonical" href="https://importmetric.com/fob-vs-cif-calculator.html">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta property="og:type" content="website"><meta property="og:url" content="https://importmetric.com/fob-vs-cif-calculator.html"><meta property="og:title" content="FOB vs CIF Calculator | ImportMetric"><meta property="og:description" content="Normalize FOB and CIF supplier quotes before comparing cost."><meta property="og:site_name" content="ImportMetric"><meta name="theme-color" content="#f5f2eb">
+  <meta name="twitter:card" content="summary"><meta name="twitter:title" content="FOB vs CIF Calculator | ImportMetric"><meta name="twitter:description" content="Compare FOB and CIF quotes on the same pre-duty cost basis.">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"FOB vs CIF Calculator","url":"https://importmetric.com/fob-vs-cif-calculator.html","description":"Compare FOB and CIF supplier quotes on a normalized pre-duty cost basis.","applicationCategory":"BusinessApplication","operatingSystem":"Any","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"ImportMetric","url":"https://importmetric.com/"}}
+  </script>
+  <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="supplier-quote-comparison.css">
+</head>
+<body class="tool-page">
+<header class="site-header"><div class="container header-inner"><a class="brand" href="index.html" aria-label="ImportMetric home"><span class="brand-mark" aria-hidden="true">IM</span><span class="brand-name">Import<span>Metric</span></span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav"><span class="sr-only">Toggle navigation</span><span></span><span></span></button><nav class="main-nav" id="main-nav" aria-label="Main navigation"><a href="index.html#tools">Tools</a><a href="index.html#utility-tools">Utilities</a><a href="index.html#guides">Guides</a><a href="import-decision-report.html">Decision Report</a><a class="nav-cta" href="#comparison-inputs">Compare FOB vs CIF <span aria-hidden="true">&#8599;</span></a></nav></div></header>
+<main>
+<section class="tool-hero" aria-labelledby="page-title"><div class="container tool-hero-inner"><div><p class="eyebrow"><span class="eyebrow-dot"></span> Incoterm quote comparison</p><h1 id="page-title">FOB vs CIF<br><em>Calculator</em></h1><p class="tool-subtitle">Put a FOB quote and a CIF quote on the same pre-duty cost basis before deciding which supplier offer is cheaper.</p></div><div class="hero-aside"><span class="hero-aside-number">10</span><p>Normalize the quote scope before you compare unit price.</p></div></div></section>
+<section class="quote-workspace" id="comparison-inputs" aria-labelledby="inputs-title"><div class="container"><div class="workspace-heading"><div><p class="eyebrow">Step 01 / Quote inputs</p><h2 id="inputs-title">Compare the same<br><em>delivery point.</em></h2></div><div class="workspace-actions"><button class="button button-secondary" id="load-example" type="button">Load Example</button><button class="button button-quiet" id="reset-calculator" type="button">Reset</button><p class="example-note">Example values are for demonstration only.</p></div></div>
+<div class="supplier-grid">
+<div class="supplier-card"><div class="supplier-heading"><div><span class="supplier-index">FOB</span><h3>FOB Quote</h3></div></div><div class="field-grid">
+<div class="field"><label for="currency">Currency</label><select id="currency"><option>USD</option><option>EUR</option><option>GBP</option><option>CAD</option><option>AUD</option></select></div>
+<div class="field"><label for="quantity">Quantity</label><input id="quantity" type="number" min="0" step="1" placeholder="e.g. 1000"><p class="field-error" id="quantity-error"></p></div>
+<div class="field"><label for="fob-unit-price">FOB Unit Price</label><input id="fob-unit-price" type="number" min="0" step="0.01" placeholder="e.g. 7.50"><p class="field-error" id="fob-unit-price-error"></p></div>
+<div class="field"><label for="fob-freight">Buyer-paid Freight</label><input id="fob-freight" type="number" min="0" step="0.01" placeholder="e.g. 850"><p class="field-error" id="fob-freight-error"></p></div>
+<div class="field"><label for="fob-insurance">Buyer-paid Insurance</label><input id="fob-insurance" type="number" min="0" step="0.01" placeholder="e.g. 65"><p class="field-error" id="fob-insurance-error"></p></div>
+<div class="field"><label for="fob-destination">Destination / Other Charges</label><input id="fob-destination" type="number" min="0" step="0.01" placeholder="e.g. 300"><p class="field-error" id="fob-destination-error"></p></div>
+</div></div>
+<div class="supplier-card"><div class="supplier-heading"><div><span class="supplier-index">CIF</span><h3>CIF Quote</h3></div></div><div class="field-grid">
+<div class="field field-wide"><label for="cif-unit-price">CIF Unit Price</label><input id="cif-unit-price" type="number" min="0" step="0.01" placeholder="e.g. 8.60"><p class="field-error" id="cif-unit-price-error"></p></div>
+<div class="field field-wide"><label for="cif-destination">Buyer-paid Destination / Other Charges</label><input id="cif-destination" type="number" min="0" step="0.01" placeholder="e.g. 360"><p class="field-error" id="cif-destination-error"></p></div>
+</div><div class="duty-note"><strong>Scope reminder</strong><span>CIF normally includes contracted carriage and insurance to the named destination port.</span><small>Destination charges and import clearance may still remain with the buyer. Enter the costs you actually expect.</small></div></div>
+</div>
+<div class="comparison-notice" id="comparison-status" role="status">Enter both quotes and a quantity to compare normalized pre-duty cost.</div>
+<div class="table-wrap"><table class="comparison-table"><caption class="sr-only">FOB and CIF normalized cost comparison</caption><thead><tr><th>Quote</th><th>Quoted Product Value</th><th>Added Buyer Costs</th><th>Normalized Total</th><th>Normalized Cost / Unit</th><th>Difference / Unit</th></tr></thead><tbody><tr><td><strong>FOB</strong></td><td id="fob-product">$0.00</td><td id="fob-addons">$0.00</td><td id="fob-total">$0.00</td><td id="fob-per-unit">$0.00</td><td id="fob-diff">$0.00</td></tr><tr><td><strong>CIF</strong></td><td id="cif-product">$0.00</td><td id="cif-addons">$0.00</td><td id="cif-total">$0.00</td><td id="cif-per-unit">$0.00</td><td id="cif-diff">$0.00</td></tr></tbody></table></div>
+</div></section>
+<section class="explain-section" aria-labelledby="explain-title"><div class="container explain-grid"><div><p class="eyebrow">Normalize before comparing</p><h2 id="explain-title">FOB and CIF are<br><em>different scopes.</em></h2></div><div class="explain-copy"><p>FOB and CIF allocate transport responsibilities differently, so the quoted unit prices are not directly comparable. This calculator adds the buyer-paid costs needed to bring both quotes to a similar pre-duty destination basis.</p><p><strong>Import duty and tax are not included.</strong> Customs valuation and tax treatment vary by jurisdiction, so use the Import Duty Calculator or Landed Cost Calculator after normalizing the quote.</p><p><a class="text-link tool-cross-link" href="guides/exw-vs-fob-vs-cif-vs-ddp.html">Read the EXW vs FOB vs CIF vs DDP guide <span aria-hidden="true">&#8599;</span></a></p><p><a class="text-link tool-cross-link" href="landed-cost-calculator.html">Continue to full landed cost <span aria-hidden="true">&#8594;</span></a></p></div></div></section>
+</main>
+<footer class="site-footer"><div class="container footer-top"><a class="brand brand-footer" href="index.html"><span class="brand-mark" aria-hidden="true">IM</span><span class="brand-name">Import<span>Metric</span></span></a><p>Clearer numbers for better import decisions.</p><nav aria-label="Footer navigation"><a href="index.html#tools">Tools</a><a href="index.html#utility-tools">Utilities</a><a href="index.html#guides">Guides</a><a href="privacy.html">Privacy</a></nav></div><div class="container footer-bottom"><span>&copy; 2026 ImportMetric.</span><span>Built for importers, wholesalers &amp; e-commerce sellers.</span></div></footer>
+<script src="script.js?v=6"></script><script src="fob-vs-cif-calculator.js?v=1"></script>
+</body></html>
