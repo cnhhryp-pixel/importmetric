@@ -79,3 +79,22 @@ h1 em, h2 em { color: var(--coral); font-style: normal; }
 :where(a,button,input,select,textarea,summary):focus-visible{outline:3px solid var(--coral);outline-offset:3px}
 @media(max-width:800px){.guides-section{padding:75px 0}.guide-grid{grid-template-columns:1fr}.guide-card{min-height:225px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+
+/* Utility tools */
+.utility-section{padding:92px 0 104px;background:var(--paper)}
+.utility-heading{margin-bottom:40px}
+.utility-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.utility-card{min-height:300px;position:relative;padding:29px 30px;background:var(--cream);border:1px solid transparent;transition:transform .2s ease,background .2s ease,border-color .2s ease}
+.utility-card:hover{transform:translateY(-4px);background:#dedbd0;border-color:rgba(13,92,92,.14)}
+.utility-card-dark{background:var(--teal-dark);color:var(--white)}
+.utility-card-dark:hover{background:var(--teal)}
+.utility-index{color:var(--coral);font:500 10px 'DM Mono',monospace;letter-spacing:.09em;text-transform:uppercase}
+.utility-icon{position:absolute;top:25px;right:29px;color:var(--coral);font-size:28px;font-weight:800}
+.utility-card h3{margin:55px 0 17px;max-width:310px;font-size:25px;line-height:1.1;letter-spacing:-.05em}
+.utility-card p{max-width:440px;margin:0 0 50px;color:var(--muted);font-size:12px;line-height:1.65}
+.utility-card-dark p{color:rgba(255,253,248,.68)}
+.utility-card b{position:absolute;left:30px;bottom:26px;color:var(--teal);font-size:11px}
+.utility-card-dark b{color:var(--white)}
+.utility-card b span{margin-left:6px;color:var(--coral);font-size:16px}
+@media(max-width:800px){.utility-section{padding:72px 0}.utility-grid{grid-template-columns:1fr}.utility-card{min-height:250px}}
