@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Freight Cost per Unit Calculator | ImportMetric</title>
+  <meta name="description" content="Calculate freight and logistics cost per unit from international freight, origin, insurance, customs, destination and other shipping costs.">
+  <link rel="canonical" href="https://importmetric.com/freight-cost-per-unit-calculator.html">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://importmetric.com/freight-cost-per-unit-calculator.html">
+  <meta property="og:title" content="Freight Cost per Unit Calculator | ImportMetric">
+  <meta property="og:description" content="Spread freight, insurance, clearance and local delivery costs across your order quantity.">
+  <meta property="og:site_name" content="ImportMetric">
+  <meta name="theme-color" content="#f5f2eb">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Freight Cost per Unit Calculator | ImportMetric">
+  <meta name="twitter:description" content="Calculate logistics cost per unit before comparing supplier prices or margins.">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Freight Cost per Unit Calculator","url":"https://importmetric.com/freight-cost-per-unit-calculator.html","description":"Calculate freight and logistics cost per unit from origin, international freight, insurance, customs, destination and other costs.","applicationCategory":"BusinessApplication","operatingSystem":"Any","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"ImportMetric","url":"https://importmetric.com/"}}
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="landed-cost-calculator.css">
+</head>
+<body class="tool-page landed-page">
+<header class="site-header"><div class="container header-inner"><a class="brand" href="index.html" aria-label="ImportMetric home"><span class="brand-mark" aria-hidden="true">IM</span><span class="brand-name">Import<span>Metric</span></span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav"><span class="sr-only">Toggle navigation</span><span></span><span></span></button><nav class="main-nav" id="main-nav" aria-label="Main navigation"><a href="index.html#tools">Tools</a><a href="index.html#utility-tools">Utilities</a><a href="index.html#guides">Guides</a><a href="import-decision-report.html">Decision Report</a><a class="nav-cta" href="#calculator-inputs">Calculate freight/unit <span aria-hidden="true">&#8599;</span></a></nav></div></header>
+<main>
+<section class="tool-hero" aria-labelledby="page-title"><div class="container tool-hero-inner"><div><p class="eyebrow"><span class="eyebrow-dot"></span> Import logistics tool</p><h1 id="page-title">Freight Cost<br><em>per Unit Calculator</em></h1><p class="tool-subtitle">Spread shipment-level logistics costs across your order quantity so you can compare suppliers and product margins on a per-unit basis.</p></div><div class="hero-aside"><span class="hero-aside-number">07</span><p>Turn one freight quote into a clearer unit-cost estimate.</p></div></div></section>
+
+<section class="calculator-workspace" id="calculator-inputs" aria-labelledby="inputs-title"><div class="container"><div class="workspace-heading"><div><p class="eyebrow">Step 01 / Shipment costs</p><h2 id="inputs-title">Build the<br><em>logistics total.</em></h2></div><div class="workspace-actions"><button class="button button-secondary" id="load-example" type="button">Load Example</button><button class="button button-quiet" id="reset-calculator" type="button">Reset</button><p class="example-note">Example values are for demonstration only.</p></div></div>
+<div class="calculator-grid"><form class="input-panel" id="freight-form" novalidate>
+<div class="input-group"><div class="input-group-heading"><span class="group-number">01</span><h3>Order details</h3></div><div class="field-grid">
+<div class="field"><label for="currency">Currency</label><select id="currency"><option>USD</option><option>EUR</option><option>GBP</option><option>CAD</option><option>AUD</option></select></div>
+<div class="field"><label for="quantity">Order Quantity</label><input id="quantity" type="number" min="0" step="1" placeholder="e.g. 1000"><p class="field-error" id="quantity-error"></p></div>
+<div class="field field-wide"><label for="product-cost">Product Cost / Order <small>(optional)</small></label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="product-cost" type="number" min="0" step="0.01" placeholder="e.g. 8400"></div><p class="field-error" id="product-cost-error"></p></div>
+</div></div>
+<div class="input-group"><div class="input-group-heading"><span class="group-number">02</span><h3>Logistics costs</h3></div><div class="field-grid">
+<div class="field"><label for="origin-cost">Origin / Inland Transport</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="origin-cost" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="origin-cost-error"></p></div>
+<div class="field"><label for="freight">International Freight</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="freight" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="freight-error"></p></div>
+<div class="field"><label for="insurance">Insurance</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="insurance" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="insurance-error"></p></div>
+<div class="field"><label for="clearance">Customs / Clearance</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="clearance" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="clearance-error"></p></div>
+<div class="field"><label for="destination">Destination / Local Delivery</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="destination" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="destination-error"></p></div>
+<div class="field"><label for="other-costs">Other Logistics Costs</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="other-costs" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="other-costs-error"></p></div>
+</div></div>
+</form>
+<aside class="result-panel" aria-labelledby="results-title"><div class="result-panel-heading"><p class="eyebrow">Step 02 / Unit view</p><h2 id="results-title">Your freight<br><em>cost per unit.</em></h2></div>
+<div class="result-primary"><div><span>TOTAL LOGISTICS COST</span><strong id="total-logistics">$0.00</strong></div><div><span>LOGISTICS COST / UNIT</span><strong id="cost-per-unit">$0.00</strong></div></div>
+<p class="result-status" id="result-status">Enter an order quantity and logistics costs to calculate.</p>
+<div class="result-metrics"><div><span>INTERNATIONAL FREIGHT / UNIT</span><strong id="freight-per-unit">$0.00</strong></div><div><span>ORIGIN + DESTINATION / UNIT</span><strong id="ground-per-unit">$0.00</strong></div><div><span>CLEARANCE + OTHER / UNIT</span><strong id="other-per-unit">$0.00</strong></div><div><span>LOGISTICS % OF PRODUCT COST</span><strong id="logistics-percent">Unavailable</strong></div><div><span>PRODUCT + LOGISTICS / UNIT</span><strong id="combined-per-unit">$0.00</strong></div><div><span>PRODUCT COST / UNIT</span><strong id="product-per-unit">$0.00</strong></div></div>
+</aside></div></div></section>
+
+<section class="formula-section" aria-labelledby="formula-title"><div class="container formula-grid"><div><p class="eyebrow">The shipping math</p><h2 id="formula-title">Move from freight quote<br><em>to unit economics.</em></h2></div><div class="formula-copy"><p>Shipment quotes are usually given as totals. Dividing the complete logistics total by the planned quantity makes it easier to compare the impact on each unit.</p><div class="formula-card"><strong>Logistics cost / unit</strong><span>(Origin + freight + insurance + clearance + destination + other) &divide; quantity</span></div><p class="formula-footnote">This tool does not include import duty unless you enter it under Other Logistics Costs. Use the Landed Cost Calculator when you want the full import-cost view.</p></div></div></section>
+
+<section class="related-tools" aria-labelledby="related-title"><div class="container"><p class="eyebrow">Continue the workflow</p><h2 id="related-title">Freight is one part<br><em>of landed cost.</em></h2><div class="related-links"><a href="landed-cost-calculator.html"><span>02</span><strong>Landed Cost Calculator</strong><small>Add duty and product cost to the logistics estimate.</small><b aria-hidden="true">&#8599;</b></a><a href="import-duty-calculator.html"><span>08</span><strong>Import Duty Calculator</strong><small>Estimate duty and optional import tax from a declared customs value.</small><b aria-hidden="true">&#8599;</b></a><a href="import-profit-margin-calculator.html"><span>05</span><strong>Import Profit Margin</strong><small>See how logistics changes your final margin.</small><b aria-hidden="true">&#8599;</b></a></div></div></section>
+</main>
+<footer class="site-footer"><div class="container footer-top"><a class="brand brand-footer" href="index.html"><span class="brand-mark" aria-hidden="true">IM</span><span class="brand-name">Import<span>Metric</span></span></a><p>Clearer numbers for better import decisions.</p><nav aria-label="Footer navigation"><a href="index.html#tools">Tools</a><a href="index.html#utility-tools">Utilities</a><a href="index.html#guides">Guides</a><a href="privacy.html">Privacy</a></nav></div><div class="container footer-bottom"><span>&copy; 2026 ImportMetric.</span><span>Built for importers, wholesalers &amp; e-commerce sellers.</span></div></footer>
+<script src="script.js?v=5"></script><script src="freight-cost-per-unit-calculator.js?v=1"></script>
+</body>
+</html>
