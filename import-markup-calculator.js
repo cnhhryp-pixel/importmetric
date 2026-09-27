@@ -1,0 +1,15 @@
+(function(){
+'use strict';
+var symbols={USD:'$',EUR:'€',GBP:'£',CAD:'C$',AUD:'A$'},ids=['cost-unit','markup-rate','quantity'];
+var example={currency:'USD',costUnit:18,markupRate:50,quantity:1000};
+function money(v,c){try{return new Intl.NumberFormat('en-US',{style:'currency',currency:c,maximumFractionDigits:2}).format(Number.isFinite(v)?v:0);}catch(e){return(symbols[c]||'')+(Number.isFinite(v)?v.toFixed(2):'0.00');}}
+function read(id,positive){var el=document.getElementById(id),raw=el.value.trim(),n=raw===''?0:Number(raw),bad=!Number.isFinite(n)||n<0||(positive&&n<=0),err=document.getElementById(id+'-error');el.classList.toggle('input-error',bad&&raw!=='');if(raw!==''&&!Number.isFinite(n))err.textContent='Enter a valid number.';else if(raw!==''&&n<0)err.textContent='Negative values are not allowed.';else if(positive&&raw!==''&&n<=0)err.textContent='Value must be greater than 0.';else err.textContent='';return bad?0:n;}
+function calc(){var c=document.getElementById('currency').value,cost=read('cost-unit',true),markup=read('markup-rate',false),q=read('quantity',false),rate=markup/100,selling=cost*(1+rate),profit=selling-cost,margin=selling>0?profit/selling*100:0;
+document.querySelectorAll('[data-currency-symbol]').forEach(function(el){el.textContent=symbols[c]||c;});
+document.getElementById('selling-price').textContent=money(selling,c);document.getElementById('profit-unit').textContent=money(profit,c);document.getElementById('markup-out').textContent=markup.toFixed(1)+'%';document.getElementById('margin-out').textContent=margin.toFixed(1)+'%';document.getElementById('total-revenue').textContent=q>0?money(selling*q,c):'Unavailable';document.getElementById('total-cost').textContent=q>0?money(cost*q,c):'Unavailable';document.getElementById('total-profit').textContent=q>0?money(profit*q,c):'Unavailable';document.getElementById('cost-share').textContent=selling>0?(cost/selling*100).toFixed(1)+'%':'0.0%';
+document.getElementById('result-status').textContent=cost<=0?'Enter cost per unit and markup to calculate.':'Use the selling price as a markup-based benchmark, then check market demand and any percentage selling fees.';
+}
+function setExample(){Object.keys(example).forEach(function(k){var id=k.replace(/[A-Z]/g,function(x){return'-'+x.toLowerCase();}),el=document.getElementById(id);if(el)el.value=example[k];});document.getElementById('currency').value=example.currency;calc();}
+function reset(){ids.forEach(function(id){document.getElementById(id).value='';});document.getElementById('currency').value='USD';document.querySelectorAll('.field-error').forEach(function(el){el.textContent='';});calc();}
+ids.forEach(function(id){document.getElementById(id).addEventListener('input',calc);});document.getElementById('currency').addEventListener('change',calc);document.getElementById('load-example').addEventListener('click',setExample);document.getElementById('reset-calculator').addEventListener('click',reset);calc();
+})();

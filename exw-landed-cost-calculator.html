@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EXW Landed Cost Calculator | ImportMetric</title>
+  <meta name="description" content="Estimate landed cost from an EXW unit price by adding pickup, export, freight, insurance, duty, customs and destination delivery.">
+  <link rel="canonical" href="https://importmetric.com/exw-landed-cost-calculator.html">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://importmetric.com/exw-landed-cost-calculator.html">
+  <meta property="og:title" content="EXW Landed Cost Calculator | ImportMetric">
+  <meta property="og:description" content="Turn an EXW supplier quote into a simplified landed-cost estimate.">
+  <meta property="og:site_name" content="ImportMetric">
+  <meta name="theme-color" content="#f5f2eb">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="EXW Landed Cost Calculator | ImportMetric">
+  <meta name="twitter:description" content="Estimate EXW landed cost after origin, freight, duty and destination costs.">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"EXW Landed Cost Calculator","url":"https://importmetric.com/exw-landed-cost-calculator.html","description":"Estimate landed cost from an EXW unit price plus pickup, export, freight, insurance, duty, customs and destination costs.","applicationCategory":"BusinessApplication","operatingSystem":"Any","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"ImportMetric","url":"https://importmetric.com/"}}
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="landed-cost-calculator.css">
+</head>
+<body class="tool-page landed-page">
+<header class="site-header"><div class="container header-inner"><a class="brand" href="index.html" aria-label="ImportMetric home"><span class="brand-mark" aria-hidden="true">IM</span><span class="brand-name">Import<span>Metric</span></span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav"><span class="sr-only">Toggle navigation</span><span></span><span></span></button><nav class="main-nav" id="main-nav" aria-label="Main navigation"><a href="index.html#tools">Tools</a><a href="index.html#utility-tools">Utilities</a><a href="index.html#guides">Guides</a><a href="import-decision-report.html">Decision Report</a><a class="nav-cta" href="#calculator-inputs">Calculate EXW landed cost <span aria-hidden="true">&#8599;</span></a></nav></div></header>
+<main>
+<section class="tool-hero" aria-labelledby="page-title"><div class="container tool-hero-inner"><div><p class="eyebrow"><span class="eyebrow-dot"></span> EXW import planning tool</p><h1 id="page-title">EXW Landed Cost<br><em>Calculator</em></h1><p class="tool-subtitle">Start with an EXW supplier price, then add pickup, export, freight, insurance, border and destination costs to build a simplified landed-cost estimate.</p></div><div class="hero-aside"><span class="hero-aside-number">19</span><p>EXW often leaves more origin-side logistics with the buyer.</p></div></div></section>
+
+<section class="calculator-workspace" id="calculator-inputs" aria-labelledby="inputs-title"><div class="container"><div class="workspace-heading"><div><p class="eyebrow">Step 01 / EXW quote</p><h2 id="inputs-title">Add the costs<br><em>after factory pickup.</em></h2></div><div class="workspace-actions"><button class="button button-secondary" id="load-example" type="button">Load Example</button><button class="button button-quiet" id="reset-calculator" type="button">Reset</button><p class="example-note">Example values are for demonstration only.</p></div></div>
+<div class="calculator-grid"><form class="input-panel" id="exw-form" novalidate>
+<div class="input-group"><div class="input-group-heading"><span class="group-number">01</span><h3>EXW purchase</h3></div><div class="field-grid">
+<div class="field"><label for="currency">Currency</label><select id="currency"><option>USD</option><option>EUR</option><option>GBP</option><option>CAD</option><option>AUD</option></select></div>
+<div class="field"><label for="quantity">Quantity</label><input id="quantity" type="number" min="0" step="1" placeholder="e.g. 1000"><p class="field-error" id="quantity-error"></p></div>
+<div class="field field-wide"><label for="exw-unit-price">EXW Unit Price</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="exw-unit-price" type="number" min="0" step="0.01" placeholder="e.g. 7.80"></div><p class="field-error" id="exw-unit-price-error"></p></div>
+</div></div>
+<div class="input-group"><div class="input-group-heading"><span class="group-number">02</span><h3>Origin, freight and import costs</h3></div><div class="field-grid">
+<div class="field"><label for="pickup">Factory Pickup / Inland Transport</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="pickup" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="pickup-error"></p></div>
+<div class="field"><label for="export-costs">Export / Origin Handling</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="export-costs" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="export-costs-error"></p></div>
+<div class="field"><label for="freight">International Freight</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="freight" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="freight-error"></p></div>
+<div class="field"><label for="insurance">Insurance</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="insurance" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="insurance-error"></p></div>
+<div class="field"><label for="duty-rate">Duty Rate (%)</label><div class="input-with-suffix"><input id="duty-rate" type="number" min="0" max="100" step="0.01" placeholder="e.g. 6.5"><span>%</span></div><p class="field-error" id="duty-rate-error"></p></div>
+<div class="field"><label for="tax-rate">Additional Import Tax / VAT (%) <small>(optional)</small></label><div class="input-with-suffix"><input id="tax-rate" type="number" min="0" max="100" step="0.01" placeholder="0"><span>%</span></div><p class="field-error" id="tax-rate-error"></p></div>
+<div class="field"><label for="customs">Customs / Clearance</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="customs" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="customs-error"></p></div>
+<div class="field"><label for="destination">Destination / Local Delivery</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="destination" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="destination-error"></p></div>
+<div class="field field-wide"><label for="other-costs">Other Buyer Costs</label><div class="input-with-symbol"><span data-currency-symbol>$</span><input id="other-costs" type="number" min="0" step="0.01" placeholder="0.00"></div><p class="field-error" id="other-costs-error"></p></div>
+</div><div class="duty-note"><strong>Simplified planning basis</strong><span>Duty Base = EXW Order Value + Pickup + Export Costs + Freight + Insurance</span><small>Actual customs valuation, tariff classification and tax treatment vary by jurisdiction. Confirm the real basis before importing.</small></div></div>
+</form>
+<aside class="result-panel" aria-labelledby="results-title"><div class="result-panel-heading"><p class="eyebrow">Step 02 / Landed estimate</p><h2 id="results-title">Your EXW landed<br><em>cost estimate.</em></h2></div>
+<div class="result-primary"><div><span>TOTAL LANDED COST</span><strong id="total-landed">$0.00</strong></div><div><span>LANDED COST / UNIT</span><strong id="landed-unit">$0.00</strong></div></div><p class="result-status" id="result-status">Enter EXW unit price and quantity to calculate.</p>
+<div class="result-metrics"><div><span>EXW ORDER VALUE</span><strong id="exw-value">$0.00</strong></div><div><span>ORIGIN COSTS</span><strong id="origin-costs">$0.00</strong></div><div><span>FREIGHT + INSURANCE</span><strong id="shipping-costs">$0.00</strong></div><div><span>EST. DUTY + TAX</span><strong id="border-tax">$0.00</strong></div><div><span>DESTINATION + OTHER</span><strong id="destination-costs">$0.00</strong></div><div><span>ADDITIONAL COST / UNIT</span><strong id="additional-unit">$0.00</strong></div></div>
+</aside></div></div></section>
+
+<section class="formula-section" aria-labelledby="formula-title"><div class="container formula-grid"><div><p class="eyebrow">EXW to landed cost</p><h2 id="formula-title">EXW exposes more<br><em>of the logistics chain.</em></h2></div><div class="formula-copy"><p>With an EXW quote, the buyer may need to arrange pickup and export-side movement before the main international freight even starts. Those origin costs can materially change the apparent supplier price.</p><div class="formula-card"><strong>Simplified landed cost</strong><span>EXW order value + origin costs + freight + insurance + estimated duty/tax + customs + destination + other buyer costs</span></div><p class="formula-footnote">Use the written supplier quote and local customs rules to confirm which charges belong in the actual calculation.</p><p><a class="text-link tool-cross-link" href="fob-landed-cost-calculator.html">Compare with FOB landed cost <span aria-hidden="true">&#8599;</span></a></p><p><a class="text-link tool-cross-link" href="guides/exw-vs-fob-vs-cif-vs-ddp.html">Read the Incoterms comparison guide <span aria-hidden="true">&#8594;</span></a></p></div></div></section>
+</main>
+<footer class="site-footer"><div class="container footer-top"><a class="brand brand-footer" href="index.html"><span class="brand-mark" aria-hidden="true">IM</span><span class="brand-name">Import<span>Metric</span></span></a><p>Clearer numbers for better import decisions.</p><nav aria-label="Footer navigation"><a href="index.html#tools">Tools</a><a href="index.html#utility-tools">Utilities</a><a href="privacy.html">Privacy</a></nav></div><div class="container footer-bottom"><span>&copy; 2026 ImportMetric.</span><span>Built for importers, wholesalers &amp; e-commerce sellers.</span></div></footer>
+<script src="script.js?v=11"></script><script src="exw-landed-cost-calculator.js?v=1"></script>
+</body></html>
