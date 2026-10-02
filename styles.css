@@ -159,3 +159,5 @@ h1 em, h2 em { color: var(--coral); font-style: normal; }
 .quick-faq-list summary{cursor:pointer;color:var(--ink);font-size:14px;font-weight:800}
 .quick-faq-list p{max-width:620px;margin:11px 0 0;color:var(--muted);font-size:12px;line-height:1.7}
 @media(max-width:800px){.tool-intent-section,.quick-faq-section{padding:68px 0 76px}.tool-intent-grid,.quick-faq-grid{grid-template-columns:1fr;gap:30px}.intent-cards{grid-template-columns:1fr}}
+
+.guides-heading .utility-heading-side{max-width:520px}.guides-heading .utility-heading-side .section-intro{margin-bottom:14px}@media(max-width:900px){.guides-heading{grid-template-columns:1fr}.guide-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:800px){.guide-grid{grid-template-columns:1fr}}
